@@ -1,3 +1,9 @@
 <h1>Scared Heart Admin Panel</h1>
 <h2>Likely where you would log in.</h2>
-<%= link_to "Create User", register_path %>
+
+<% if user == OAMDOMAOMD %>
+
+<%= link_to "Add Instructor", register_path %> <br>
+<%= link_to "Show All Instructors", index_path %>
+
+<%else%>

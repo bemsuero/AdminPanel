@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 2018_08_27_134612) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "age"
+    t.string "email"
+    t.date "birthdate"
     t.integer "salary"
     t.string "education"
-    t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
