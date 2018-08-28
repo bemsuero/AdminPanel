@@ -1,0 +1,4 @@
+<h2>Editing <%=@course.name%> </h2>
+
+<%= render "form" %>
+<%= link_to 'Delete', @course, data: {confirm: 'This will delete the course.'}, :method=> :delete %>

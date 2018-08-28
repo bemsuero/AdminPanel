@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user
     else
-      p user.error.messages
+      p @user.errors.messages
       render "new"
     end
   end

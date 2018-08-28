@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 has_many :courses
+has_many :students through: :courses
 before_save { self.email = email.downcase }
 has_secure_password
 validates :password, presence: true, length: {minimum: 8, maximum: 32}

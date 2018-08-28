@@ -1,0 +1,6 @@
+<%= form_for @course do |c| %>
+<%= c.text_field :name, placeholder: "Enter course name.", required: true %><br>
+<%= c.number_field :hours, min: 0, step: 0.5, placeholder: "Course Total Hours", required: true %><br>
+<%= c.text_area :description, placeholder: "Enter course description.", required: true %><br>
+<%= c.submit "Submit" %>
+<%end%>
