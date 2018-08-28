@@ -27,13 +27,13 @@ edu = ["High School", "College", "Masters", "PHD"]
 return edu.shuffle[0]
 end
 
-# 30.times do
-#   Student.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   education: random_education,
-#   birthdate: Faker::Date.birthday(min_age = 14, max_age = 150)
-# )
-# end
+30.times do
+  Student.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  education: random_education,
+  birthdate: Faker::Date.birthday(min_age = 14, max_age = 150)
+)
+end
 
 # Student.all.destroy_all

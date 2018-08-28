@@ -1,4 +1,5 @@
 <%= form_for @user do |u| %>
+<% if current_user.admin? %>
 <%= u.text_field :first_name, placeholder: "Enter user's First Name", required: true %><br>
 <%= u.text_field :last_name, placeholder: "Enter user's Last Name", required: true %><br>
 <%= u.email_field :email, placeholder: "Enter user's email", required: true %><br>
@@ -15,4 +16,14 @@
 <small>Minumum Length: 8 Characters</small><br>
 <small>Maximum Length: 32 Characters</small><br>
 <%= u.submit "Submit" %>
+<%else%>
+<%= u.email_field :email, placeholder: "Edit Email", required: true %><br>
+<%= u.password_field :password, placeholder: "Edit password", required: true %><br>
+<small>Minumum Length: 8 Characters</small><br>
+<small>Maximum Length: 32 Characters</small><br>
+<%= u.password_field :password_confirmation, placeholder: "Confirm password", required: true  %><br>
+<small>Minumum Length: 8 Characters</small><br>
+<small>Maximum Length: 32 Characters</small><br>
+<%= u.submit "Submit" %>
+<%end%>
 <%end%>

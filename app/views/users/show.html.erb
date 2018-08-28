@@ -2,8 +2,9 @@
 
 
 <ul>
-  <li><%= link_to "Home", "/" %></li>
   <li><%= link_to "Edit Profile", edit_user_path %></li>
-  <li>See Courses</li>
-  <li>See Cohorts</li>
 </ul>
+
+<% @user.courses.each do |a| %>
+<%= a.name %><br>
+<%end%>

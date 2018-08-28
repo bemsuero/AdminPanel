@@ -7,9 +7,12 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
+    @course.user_id = current_user.id
+    @course.owner = current_user.full_name + " For Daggit University"
     if @course.save
       redirect_to @course
     else
+      p @course.owner
       p @course.errors.messages
       render "new"
     end
@@ -43,7 +46,7 @@ end
   private
 
   def course_params
-    params.required(:course).permit(:name, :hours, :description)
+    params.required(:course).permit(:name, :hours, :description, :owner)
   end
 
   def find_course

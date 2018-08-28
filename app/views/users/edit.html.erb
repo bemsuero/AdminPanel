@@ -2,4 +2,6 @@
 <h3>With Email: <%=@user.email%></h3>
 
 <%= render "form" %>
+<% if current_user.admin? %>
 <%= link_to 'Delete', @user, data: {confirm: 'This will delete the user.'}, :method=> :delete %>
+<%end%>
