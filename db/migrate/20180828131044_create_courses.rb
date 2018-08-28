@@ -4,6 +4,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :hours
       t.text :description
+      t.text :owner
 
       t.timestamps
     end

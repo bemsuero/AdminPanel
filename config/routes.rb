@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   root "pages#home"
 
   resources :users
   resources :pages
   resources :courses
 
+  get "/login" => "sessions#new"
+  post "/login" => "sessions#create"
+  delete "/logout" => "sessions#destroy"
+  
   get "create_course" => "courses#new"
   get 'courses/edit'
   get "course_index" => "courses#index"

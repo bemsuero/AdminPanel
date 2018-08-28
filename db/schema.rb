@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_131044) do
     t.string "name"
     t.integer "hours"
     t.text "description"
+    t.text "owner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

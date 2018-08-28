@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 has_many :courses
-has_many :students through: :courses
+has_many :students, through: :courses
 before_save { self.email = email.downcase }
 has_secure_password
 validates :password, presence: true, length: {minimum: 8, maximum: 32}
@@ -15,5 +15,12 @@ validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
     BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
+  def authenticated?(attribute, token)
+  digest = send("#{attribute}_digest")
+  return false if digest.nil?
+  BCrypt:Password.new(digest).is_password?(token)
+  end
+
 
 end

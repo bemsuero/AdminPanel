@@ -29,7 +29,7 @@ end
 
 def destroy
   @course.destroy
-  redirect_to "/"
+  redirect_to root_path
 end
 
   def index

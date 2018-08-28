@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      msg = "New Employee Created: #{@user.full_name}."
+      flash[:notice] = msg
       redirect_to @user
     else
       p @user.errors.messages
@@ -29,7 +31,7 @@ end
 
 def destroy
   @user.destroy
-  redirect_to "/"
+  redirect_to root_path
 end
 
   def index
