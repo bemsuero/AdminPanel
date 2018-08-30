@@ -1,6 +1,14 @@
-<% if current_user.admin? %>
+<% if current_admin != nil %>
 <h2>Editing <%=@student.first_name%> <%=@student.last_name%> </h2>
-<%= link_to 'Delete', @student, data: {confirm: 'This will delete the student.'}, :method=> :delete %>
+<%= form_for [@user, @student] do |u| %>
+<%= u.text_field :first_name, placeholder: "Student's First Name", required: true %><br>
+<%= u.text_field :last_name, placeholder: "Student's Last Name", required: true %><br>
+<label>Birth Date:</label><br>
+<%= u.date_select :birthdate, placeholder: "When was the student born?", start_year: 1868, end_year: 2004, required: true %><br>
+<label>Education Level:</label><br>
+<%= u.select :education, [["High School", "High School"], ["College", "College"], ["Masters", "Masters"], ["PHD", "PHD"]], required: true %><br>
+<%= u.submit "Submit" %>
+<%end%>
 <%else%>
 <p>You do not have access to this.</p>
 <%end%>

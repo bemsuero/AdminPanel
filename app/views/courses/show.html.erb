@@ -4,12 +4,12 @@
 <p> <%= @course.description %> </p>
 <p> Total Hours: <%= @course.hours %> </p>
 
-<% @course.students.each do |s| %>
+<h3>Students Enrolled:</h3>
 <ol>
-<li> <%= s.full_name%> </li>
-<li> <%= s.student_id%> </li>
-</ol>
+<% @course.students.each do |s| %>
+<li> Name: <%= s.full_name%> ID: <%= s.student_id%> </li>
 <%end%>
+</ol>
 <% if current_admin != nil %>
 <p><%= link_to "Edit Course", edit_user_course_path %></p>
 <%end%>

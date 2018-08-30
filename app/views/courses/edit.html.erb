@@ -1,8 +1,2 @@
-<% if current_admin != nil %>
 <h2>Editing Course <%=@course.name%> </h2>
-
 <%= render "form" %>
-<%= link_to 'Delete', @course, data: {confirm: 'This will delete the course.'}, :method=> :delete %>
-<%else%>
-<p>You do not have access to this part of the site.</p>
-<%end%>

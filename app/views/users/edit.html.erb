@@ -1,6 +1,17 @@
 <h2>Editing Instructor <%=@user.first_name%> <%=@user.last_name%> </h2>
 <h3>With Email: <%=@user.email%></h3>
-<%= render "instructor" %>
+<% if current_user != nil%>
+<%= form_for @user do |u| %>
+<%= u.email_field :email, placeholder: "Edit Email", required: true %><br>
+<%= u.password_field :password, placeholder: "Edit password", required: true %><br>
+<small>Minumum Length: 8 Characters</small><br>
+<small>Maximum Length: 32 Characters</small><br>
+<%= u.password_field :password_confirmation, placeholder: "Confirm password", required: true  %><br>
+<small>Minumum Length: 8 Characters</small><br>
+<small>Maximum Length: 32 Characters</small><br>
+<%= u.submit "Submit" %><br>
 <% if current_admin != nil %>
-<%= link_to 'Delete', @user, data: {confirm: 'This will delete the user.'}, :method=> :delete %>
+<%= link_to 'Fire Instructor', @user, data: {confirm: 'This will delete the user.'}, :method=> :delete %>
+<%end%>
+<%end%>
 <%end%>

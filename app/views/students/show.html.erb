@@ -1,3 +1,7 @@
-<h2><%@student.full_name%>'s records.</h2>
+<% if current_admin != nil %>
+<h2><%=@student.full_name%>'s records.</h2>
 
-<li><%= link_to "Edit Student Information", edit_student_path %></li>
+<li><%= link_to "Edit Student Information", edit_user_student_path %></li>
+<%else%>
+<p>You do not have access to this.</p>
+<%end%>

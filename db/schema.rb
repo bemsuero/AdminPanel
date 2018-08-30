@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_144352) do
     t.string "last_name"
     t.string "education"
     t.date "birthdate"
-    t.integer "student_id"
+    t.string "student_id"
     t.integer "course_id"
     t.integer "user_id"
     t.datetime "created_at", null: false

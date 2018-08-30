@@ -1,4 +1,14 @@
+<% if current_admin != nil %>
 <h2>All Courses</h2>
+<ol>
 <% @courses.each do |c| %>
-<h3> <%= link_to "Landing Page for #{c.name}", c %> <br>
+<li> <%= link_to "Landing Page for #{c.name}", user_course_path(c.user_id, c) %> <br>
+  <% if current_admin != nil %>
+    <%= link_to 'Delete Course', user_course_path(c.user_id, c), data: {confirm: 'This will delete the course.'}, :method=> :delete %>
+  </li>
+</ol>
+<%end%>
+<%end%>
+<%else%>
+<p>You do not have permission to view this page</p>
 <%end%>

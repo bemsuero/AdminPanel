@@ -1,9 +1,13 @@
 <% if current_admin != nil %>
 <h2>All Students</h2>
 <% @students.each do |u| %>
-<ul>
-<h3> <%= link_to "#{u.first_name}'s Profile", u %> </h3>
-</ul>
+<ol>
+<li> <%= link_to "#{u.first_name}'s Profile", user_student_path(u.user_id, u) %> <br>
+<% if current_admin != nil %>
+   <%= link_to 'Delete Student', user_student_path(u.user_id, u), data: {confirm: 'This will delete the student.'}, :method=> :delete %>
+ </li>
+</ol>
+<%end%>
 <%end%>
 <%else%>
 <p>You do not have access to this.</p>

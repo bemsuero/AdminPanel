@@ -1,5 +1,5 @@
-<% if current_user != nil %>
-<h2>Welcome back <%=@current_user.first_name%></h2>
+<% if current_admin != nil %>
+<h2>Welcome back <%=@current_admin.first_name%></h2>
 <%else%>
 <h2>Instructor Log In </h2>
 <%= form_for(:session, url: login_path) do |f| %>

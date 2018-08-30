@@ -1,7 +1,7 @@
-<% if current_user.admin? %>
+<% if current_admin != nil %>
 <%= form_for [@user, @student] do |u| %>
-<%= u.text_field :first_name, placeholder: "Enter student's First Name", required: true %><br>
-<%= u.text_field :last_name, placeholder: "Enter student's Last Name", required: true %><br>
+<%= u.text_field :first_name, placeholder: "Student's First Name", required: true %><br>
+<%= u.text_field :last_name, placeholder: "Student's Last Name", required: true %><br>
 <label>Birth Date:</label><br>
 <%= u.date_select :birthdate, placeholder: "When was the student born?", start_year: 1868, end_year: 2004, required: true %><br>
 <label>Education Level:</label><br>

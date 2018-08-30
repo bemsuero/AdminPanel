@@ -16,15 +16,5 @@
 <small>Minumum Length: 8 Characters</small><br>
 <small>Maximum Length: 32 Characters</small><br>
 <%= u.submit "Submit" %>
-<% if current_user != nil%>
-<%= u.email_field :email, placeholder: "Edit Email", required: true %><br>
-<%= u.password_field :password, placeholder: "Edit password", required: true %><br>
-<small>Minumum Length: 8 Characters</small><br>
-<small>Maximum Length: 32 Characters</small><br>
-<%= u.password_field :password_confirmation, placeholder: "Confirm password", required: true  %><br>
-<small>Minumum Length: 8 Characters</small><br>
-<small>Maximum Length: 32 Characters</small><br>
-<%= u.submit "Submit" %>
-<%end%>
 <%end%>
 <%end%>

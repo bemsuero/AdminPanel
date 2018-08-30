@@ -1,10 +1,10 @@
 class StudentsController < ApplicationController
   before_action :find_student, only: [:show, :edit, :update, :destroy]
-  before_action :find_user, only: [:new, :create]
+  before_action :find_user, only: [:new, :edit, :create]
 
   def new
     @student = Student.new
-    @course = Course.where(user_id: @user_id)
+    @course = Course.where(user_id: @user.id)
   end
 
 

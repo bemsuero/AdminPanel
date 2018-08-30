@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :find_course, only: [:show, :edit, :update, :destroy]
-  before_action :find_user, only: [:new, :create]
+  before_action :find_user, only: [:new, :create, :edit]
 
 
   def new
@@ -32,7 +32,7 @@ end
 
 def destroy
   @course.destroy
-  redirect_to root_path
+  redirect_to allcourses_path
 end
 
   def index
