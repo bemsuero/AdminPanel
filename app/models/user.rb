@@ -1,11 +1,15 @@
 class User < ApplicationRecord
-has_many :courses
+has_many :courses, dependent: :destroy
 has_many :students, through: :courses
 before_save { self.email = email.downcase }
 has_secure_password
 validates :password, presence: true, length: {minimum: 8, maximum: 32}
 VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+
+  def create_employee_id
+    self.employee_id = SecureRandom.hex(6).upcase
+  end
 
   def full_name
     self.first_name + " " + self.last_name

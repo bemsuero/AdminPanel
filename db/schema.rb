@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_144352) do
     t.date "birthdate"
     t.integer "salary"
     t.string "education"
+    t.string "employee_id"
     t.integer "admin_id"
     t.string "password_digest"
     t.datetime "created_at", null: false

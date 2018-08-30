@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "instructors_register" => "users#new"
   get "instructors_index" => "users#index"
   get "users/edit"
+  delete "users/edit"
   get 'users/show'
 
   get "students/new"

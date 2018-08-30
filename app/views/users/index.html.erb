@@ -2,7 +2,10 @@
 <h2>All Instructors</h2>
 <% @users.each do |u| %>
 <ul>
-<h3> <%= link_to "#{u.first_name}'s Profile", u %> </h3>
+<li> <%= link_to "#{u.first_name}'s Profile", u %> <br>
+ Employee ID: <%=u.employee_id%> <br>
+ <%= link_to 'Fire Instructor', u, data: {confirm: 'This will terminate the instructor.'}, :method=> :delete %>
+ </li>
 </ul>
 <%end%>
 <%else%>

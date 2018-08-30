@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.admin_id = current_admin.id
+    @user.create_employee_id
     if @user.save
       msg = "New Employee Created: #{@user.full_name}."
       flash[:notice] = msg
@@ -34,7 +35,7 @@ end
 
 def destroy
   @user.destroy
-  redirect_to root_path
+  redirect_to instructors_index_path
 end
 
   def index
