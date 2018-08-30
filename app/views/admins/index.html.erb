@@ -1,0 +1,6 @@
+<h2>All Instructors</h2>
+<% @admins.each do |a| %>
+<ul>
+<h3> <%= link_to "#{a.first_name}'s Profile", a %> </h3>
+</ul>
+<%end%>

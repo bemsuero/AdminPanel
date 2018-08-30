@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      log_in(user)
+      u_log_in(user)
       redirect_to root_path
     else
       msg = "Invalid Credentials"
@@ -17,6 +17,27 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    u_log_out if u_logged_in?
+    p "logged out successfully"
+    redirect_to root_path
+  end
+
+
+  def admincreate
+    admin = Admin.find_by(email: params[:session][:email].downcase)
+    if admin && admin.authenticate(params[:session][:password])
+      log_in(admin)
+      redirect_to root_path
+    else
+      msg = "Invalid Credentials"
+      p msg
+      render "new"
+    end
+  end
+
+
+  def admindestroy
+    session[:admin_id] = nil
     log_out if logged_in?
     p "logged out successfully"
     redirect_to root_path

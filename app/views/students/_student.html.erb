@@ -1,0 +1,14 @@
+<% if current_user.admin? %>
+<%= form_for [@user, @student] do |u| %>
+<%= u.text_field :first_name, placeholder: "Enter student's First Name", required: true %><br>
+<%= u.text_field :last_name, placeholder: "Enter student's Last Name", required: true %><br>
+<label>Birth Date:</label><br>
+<%= u.date_select :birthdate, placeholder: "When was the student born?", start_year: 1868, end_year: 2004, required: true %><br>
+<label>Education Level:</label><br>
+<%= u.select :education, [["High School", "High School"], ["College", "College"], ["Masters", "Masters"], ["PHD", "PHD"]], required: true %><br>
+<%= u.collection_select :course_id, @course, :id, :name, {include_blank: true} %><br>
+<%= u.submit "Submit" %>
+<%end%>
+<%else%>
+<p>You do not have access to this.</p>
+<%end%>

@@ -1,0 +1,10 @@
+<% if current_admin != nil %>
+<h2>All Students</h2>
+<% @students.each do |u| %>
+<ul>
+<h3> <%= link_to "#{u.first_name}'s Profile", u %> </h3>
+</ul>
+<%end%>
+<%else%>
+<p>You do not have access to this.</p>
+<%end%>

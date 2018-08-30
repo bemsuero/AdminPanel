@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
   before_action :find_course, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:new, :create]
+
 
   def new
     @course = Course.new
@@ -7,12 +9,10 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-    @course.user_id = current_user.id
-    @course.owner = current_user.full_name + " For Daggit University"
+    @course.user_id = @user.id
     if @course.save
-      redirect_to @course
+      redirect_to user_course_path(@course.user_id, @course)
     else
-      p @course.owner
       p @course.errors.messages
       render "new"
     end
@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
   def update
     if @course.update(course_params)
   p "Course successfuly updated"
-  redirect_to @course
+  redirect_to user_course_path(@course.user_id, @course)
 else
   render "edit"
 end
@@ -46,7 +46,11 @@ end
   private
 
   def course_params
-    params.required(:course).permit(:name, :hours, :description, :owner)
+    params.require(:course).permit(:name, :hours, :description, :user_id)
+  end
+
+  def find_user
+    @user = User.find(params[:user_id])
   end
 
   def find_course

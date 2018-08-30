@@ -1,6 +1,10 @@
-<h2>Log In</h2>
-<%= form_for(:session, url: login_path) do |f| %>
+<% if current_admin != nil %>
+<h2>Welcome back <%=@current_admin.first_name%></h2>
+<%else%>
+<h2>Admin Log In </h2>
+<%= form_for(:session, url: adminlogin_path) do |f| %>
 <%= f.email_field :email, placeholder: "Email", required: true %> <br>
 <%= f.password_field :password, placeholder: "Password", required: true %> <br>
 <%= f.submit "Log In" %>
+<%end%>
 <%end%>

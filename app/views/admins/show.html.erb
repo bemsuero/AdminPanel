@@ -1,0 +1,11 @@
+<% if current_admin != nil%>
+<h2>Welcome <%= @admin.first_name%> <%= @admin.last_name%> </h2>
+
+
+<ul>
+  <li><%= link_to "Edit Profile", edit_admin_path %></li>
+</ul>
+
+<%else%>
+<p>You do not have access to this part of the site.</p>
+<%end%>

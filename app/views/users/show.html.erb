@@ -5,6 +5,11 @@
   <li><%= link_to "Edit Profile", edit_user_path %></li>
 </ul>
 
-<% @user.courses.each do |a| %>
-<%= a.name %><br>
+<h3>Courses assigned so far:</h3>
+<% @user.courses.each do |courses| %>
+<h5><%= link_to "#{courses.name}", user_course_path(@user.id, courses.id) %></h5>
 <%end%>
+
+<hr>
+<%= link_to "Create Course", new_user_course_path(@user.id) %>
+<%= link_to "Create Student", new_user_student_path(@user.id) %>

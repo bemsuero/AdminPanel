@@ -5,12 +5,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
   def create
     @user = User.new(user_params)
+    @user.admin_id = current_admin.id
     if @user.save
       msg = "New Employee Created: #{@user.full_name}."
       flash[:notice] = msg
       redirect_to @user
+      p @user.education
     else
       p @user.errors.messages
       render "new"
@@ -35,17 +38,19 @@ def destroy
 end
 
   def index
-    @users = User.all
+    @users = User.where(admin_id: current_admin.id)
   end
 
   def show
 
   end
 
+
+
   private
 
   def user_params
-    params.required(:user).permit(:first_name, :last_name, :email, :birthdate, :salary, :education, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :admin_id, :email, :birthdate, :salary, :education, :password, :password_confirmation)
   end
 
   def find_user

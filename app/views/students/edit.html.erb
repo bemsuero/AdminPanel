@@ -1,0 +1,6 @@
+<% if current_user.admin? %>
+<h2>Editing <%=@student.first_name%> <%=@student.last_name%> </h2>
+<%= link_to 'Delete', @student, data: {confirm: 'This will delete the student.'}, :method=> :delete %>
+<%else%>
+<p>You do not have access to this.</p>
+<%end%>

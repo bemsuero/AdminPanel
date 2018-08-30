@@ -1,0 +1,8 @@
+<% if current_admin != nil %>
+<h2>Editing Admin <%=@admin.first_name%> <%=@admin.last_name%> </h2>
+<h3>With Email: <%=@admin.email%></h3>
+<%= render "admin" %>
+<%= link_to 'Delete', @admin, data: {confirm: 'This will delete the admin.'}, :method=> :delete %>
+<%else%>
+<p>You do not have access to this part of the site.</p>
+<%end%>

@@ -1,30 +1,24 @@
 <h1>Scared Heart Admin Panel</h1>
-<% if logged_in? %>
-<% if current_user.admin? %>
-<%= link_to "#{current_user.first_name}'s Profile", current_user %> <br>
+<% if current_admin != nil%>
+<%= link_to "#{current_admin.first_name}'s Profile", current_admin %> <br>
+<%= link_to "#{current_admin.first_name}'s Instuctors", instructors_index_path %> <br>
 <%= link_to "Add Instructor", instructors_register_path %> <br>
-<%= link_to "Show All Instructors", instructors_index_path %> <br>
-<%= link_to "Create a new Course", create_course_path %> <br>
-<%= link_to "Show Courses", course_index_path %> <br>
+<!-- <%#=# #link_to "Add Student", students_new_path %> <br> -->
+<%= link_to "Show All Students", students_index_path %> <br>
+<!-- <%#=# #link_to "Create a new Course", courses_new_path %> <br> -->
+<%= link_to "Show All Courses", courses_index_path %> <br>
 <%=link_to "Log Out", logout_path, method: :delete %>
 
 
 <%else%>
+<% if current_user != nil%>
 <%= link_to "#{current_user.first_name}'s Profile", current_user %> <br>
 <%= link_to "Show Courses", course_index_path %> <br>
 <%=link_to "Log Out", logout_path, method: :delete %>
-
-<%end%>
-
 <%else%>
 
-<h2>Log In</h2>
-<%= form_for(:session, url: login_path) do |f| %>
-<%= f.email_field :email, placeholder: "Email", required: true %> <br>
-<%= f.password_field :password, placeholder: "Password", required: true %> <br>
-<%= f.submit "Log In" %>
+<%=link_to "Instructor Login", login_path%> <br>
+<%=link_to "Admin Login", adminlogin_path%>
+
 <%end%>
-
-<small>If you do not have an account, contact administrator.</small>
-
 <%end%>

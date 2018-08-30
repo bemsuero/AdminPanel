@@ -10,13 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_131044) do
+ActiveRecord::Schema.define(version: 2018_08_30_144352) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "admin_id"
+    t.string "password_digest"
+    t.boolean "admin", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+  end
+
+  create_table "cohorts", force: :cascade do |t|
+    t.string "name"
+    t.date "start"
+    t.date "end"
+    t.integer "course_id"
+    t.integer "max_students"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.integer "hours"
     t.text "description"
-    t.text "owner"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,8 +48,12 @@ ActiveRecord::Schema.define(version: 2018_08_28_131044) do
     t.string "last_name"
     t.string "education"
     t.date "birthdate"
+    t.integer "student_id"
+    t.integer "course_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_students_on_student_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,8 +63,8 @@ ActiveRecord::Schema.define(version: 2018_08_28_131044) do
     t.date "birthdate"
     t.integer "salary"
     t.string "education"
+    t.integer "admin_id"
     t.string "password_digest"
-    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

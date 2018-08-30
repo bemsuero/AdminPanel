@@ -1,0 +1,10 @@
+<% if current_user != nil %>
+<h2>Welcome back <%=@current_user.first_name%></h2>
+<%else%>
+<h2>Instructor Log In </h2>
+<%= form_for(:session, url: login_path) do |f| %>
+<%= f.email_field :email, placeholder: "Email", required: true %> <br>
+<%= f.password_field :password, placeholder: "Password", required: true %> <br>
+<%= f.submit "Log In" %>
+<%end%>
+<%end%>

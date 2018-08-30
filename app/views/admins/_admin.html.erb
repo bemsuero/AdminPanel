@@ -1,0 +1,18 @@
+<% if current_admin != nil%>
+<%= form_for @admin do |u| %>
+<% if current_admin.admin? %>
+<%= u.text_field :first_name, placeholder: "Enter user's First Name", required: true %><br>
+<%= u.text_field :last_name, placeholder: "Enter user's Last Name", required: true %><br>
+<%= u.email_field :email, placeholder: "Enter user's email", required: true %><br>
+<%= u.password_field :password, placeholder: "create a password", required: true %><br>
+<small>Minumum Length: 8 Characters</small><br>
+<small>Maximum Length: 32 Characters</small><br>
+<%= u.password_field :password_confirmation, placeholder: "confirm password", required: true  %><br>
+<small>Minumum Length: 8 Characters</small><br>
+<small>Maximum Length: 32 Characters</small><br>
+<%= u.submit "Submit" %>
+<%end%>
+<%end%>
+<%else%>
+<p>You do not have access to this part of the site.</p>
+<%end%>
