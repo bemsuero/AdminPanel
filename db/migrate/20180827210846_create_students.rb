@@ -6,7 +6,7 @@ class CreateStudents < ActiveRecord::Migration[5.2]
       t.string :education
       t.date :birthdate
       t.string :student_id
-      t.integer :course_id
+      t.integer :cohort_id
       t.integer :user_id
 
       t.timestamps

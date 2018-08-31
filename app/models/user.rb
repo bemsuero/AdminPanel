@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 has_many :courses, dependent: :destroy
-has_many :students, through: :courses
+has_many :coherts, through: :courses
+has_many :students, through: :coherts
 before_save { self.email = email.downcase }
 has_secure_password
 validates :password, presence: true, length: {minimum: 8, maximum: 32}

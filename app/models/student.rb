@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-  belongs_to :course
+  belongs_to :cohort
   validates :first_name, :last_name, :birthdate, :education, :student_id, presence: true
 
   def full_name

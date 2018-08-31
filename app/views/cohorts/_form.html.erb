@@ -1,0 +1,12 @@
+<% if current_admin != nil %>
+<%= form_for [@user, @cohort] do |c| %>
+<label>Start Date:</label>
+<%= c.date_select :start, required: true %><br>
+<label>Start End:</label>
+<%= c.date_select :end, required: true %><br>
+<%= c.number_field :max_students, min: 1, max: 25, step: 1, placeholder: "Enter Max Students", required: true %> <br>
+<%= c.submit "Submit" %>
+<%end%>
+<%else%>
+<p>You do not have access to this part of the site.</p>
+<%end%>

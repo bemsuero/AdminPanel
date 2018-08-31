@@ -4,13 +4,11 @@
 <p> <%= @course.description %> </p>
 <p> Total Hours: <%= @course.hours %> </p>
 
-<h3>Students Enrolled:</h3>
-<ol>
-<% @course.students.each do |s| %>
-<li> Name: <%= s.full_name%> ID: <%= s.student_id%> </li>
-<%end%>
+<%= link_to "Cohorts", user_cohort_path %>
+
 </ol>
 <% if current_admin != nil %>
 <p><%= link_to "Edit Course", edit_user_course_path %></p>
+<p><%= link_to "Add Cohort", new_user_cohort_path(@user.id) %></p>
 <%= link_to 'Back', :back %>
 <%end%>

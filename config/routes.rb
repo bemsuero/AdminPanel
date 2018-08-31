@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :courses
+    resources :cohorts
     resources :students
   end
 
@@ -39,5 +40,9 @@ Rails.application.routes.draw do
   get "allcourses" => "courses#index"
   get 'courses/show'
 
+  get 'cohorts/new'
+  get 'cohorts/edit'
+  get 'cohorts/show'
+  get 'cohorts/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

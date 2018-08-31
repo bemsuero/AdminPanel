@@ -6,9 +6,9 @@
   <% if current_admin != nil %>
     <%= link_to 'Delete Course', user_course_path(c.user_id, c), data: {confirm: 'This will delete the course.'}, :method=> :delete %>
   </li>
+<%end%>
+<%end%>
 </ol>
-<%end%>
-<%end%>
 <%else%>
 <p>You do not have permission to view this page</p>
 <%end%>
