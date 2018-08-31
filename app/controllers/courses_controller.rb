@@ -40,7 +40,7 @@ end
   end
 
   def show
-
+    @cohorts = Cohort.where(params[:course_id])   
   end
 
   private
