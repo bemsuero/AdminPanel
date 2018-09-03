@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-before_action :find_admin, only: [:show, :edit]
+before_action :find_admin, only: [:show, :edit, :update]
   def new
     @admin = Admin.new
   end
@@ -16,6 +16,15 @@ before_action :find_admin, only: [:show, :edit]
 
   def edit
   end
+
+  def update
+    if @admin.update(admin_params)
+  p "User successfuly updated"
+  redirect_to @admin
+else
+  render "edit"
+end
+end
 
   def show
     @admin = Admin.find(params[:id])

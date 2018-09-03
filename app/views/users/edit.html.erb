@@ -10,8 +10,9 @@
 <small>Minumum Length: 8 Characters</small><br>
 <small>Maximum Length: 32 Characters</small><br>
 <%= u.submit "Submit" %><br>
+<%end%>
+<%end%>
 <% if current_admin != nil %>
+<%= render "instructor" %>
 <%= link_to 'Fire Instructor', @user, data: {confirm: 'This will delete the user.'}, :method=> :delete %>
-<%end%>
-<%end%>
 <%end%>

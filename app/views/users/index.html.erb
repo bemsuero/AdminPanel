@@ -1,12 +1,16 @@
 <% if current_admin != nil %>
 <h2>All Instructors</h2>
+<% if @users == nil %>
+<p>No Instructors hired yet!</p>
+<% else %>
 <% @users.each do |u| %>
 <ul>
-<li> <%= link_to "#{u.first_name}'s Profile", u %> <br>
+<li> <%= link_to "#{u.full_name}", u %> <br>
  Employee ID: <%=u.employee_id%> <br>
  <%= link_to 'Fire Instructor', u, data: {confirm: 'This will terminate the instructor.'}, :method=> :delete %>
  </li>
 </ul>
+<%end%>
 <%end%>
 <%else%>
 <p>You do not have access to this.</p>

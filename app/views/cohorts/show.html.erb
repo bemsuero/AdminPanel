@@ -2,19 +2,21 @@
 <h2> <%= @cohort.name%> Landing Page </h2>
 
 
-<p> <%= @cohort.description %> </p>
+<p> Description: <%= @cohort.description %> </p>
 <p> Max Students: <%= @cohort.max_students %> </p>
-<p> Start date: <%= @cohort.start %> </p>
-<p> End date: <%= @cohort.end %> </p>
+<p> Start date: <%= @cohort.start.strftime("%B %e %Y") %> </p>
+<p> End date: <%= @cohort.end.strftime("%B %e %Y") %> </p>
 <h3>Students Enrolled:</h3>
+<% if @cohort.students.empty? %>
+<p>No students added yet!</p>
+<% else %>
 <ol>
 <% @cohort.students.each do |s| %>
 <li> Name: <%= s.full_name%> ID: <%= s.student_id%> </li>
 <%end%>
+<%end%>
 
 </ol>
 <% if current_admin != nil %>
-<%= link_to "Create Student", new_user_student_path(@cohort.course_id) %>
-<p><%= link_to "Edit Cohort", edit_user_cohort_path %></p>
-<%= link_to 'Back', :back %>
+<%= link_to "Create Student", new_user_student_path(@cohort.course_id) %><br>
 <%end%>

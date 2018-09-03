@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :find_course, only: [:show, :edit, :update, :destroy]
-  before_action :find_user, only: [:new, :create, :edit, :show]
+  before_action :find_user, only: [:new, :create, :edit, :show, :update]
 
 
   def new
@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @course.user_id = @user.id
     if @course.save
-      redirect_to user_course_path(@course.user_id, @course)
+      redirect_to user_path(@user)
     else
       p @course.errors.messages
       render "new"
@@ -22,9 +22,15 @@ class CoursesController < ApplicationController
   end
 
   def update
-    if @course.update(course_params)
+  if @course.update(course_params)
+    p course_params
+    @course.cohorts.each do |cohort|
+    cohort.name = "#{@course.name}" + " " + "#{cohort.start.strftime("%B %Y")}"
+    cohort.save
+  p cohort
+  end
   p "Course successfuly updated"
-  redirect_to user_course_path(@course.user_id, @course)
+  redirect_to user_path(@user)
 else
   render "edit"
 end
@@ -40,7 +46,7 @@ end
   end
 
   def show
-    @cohorts = Cohort.where(params[:course_id])   
+    @cohorts = Cohort.find_by(params[:course_id])
   end
 
   private

@@ -5,16 +5,15 @@
 <p> Total Hours: <%= @course.hours %> </p>
 
 <h3>Cohorts for this course</h3>
-<% if @cohorts.count == 0 %>
+<% if @course.cohorts.empty? %>
 <p>No cohorts added yet!</p>
 <% else %>
-<% @cohorts.each do |c| %>
-<%= c.name %>
+<% @course.cohorts.each do |cohorts| %>
+<%= link_to "#{cohorts.name}", user_cohort_path(@course.id, cohorts.id) %> <%= link_to "Edit Cohort", edit_user_cohort_path(@course.id, cohorts.id) %><br>
+<br>
 <%end%>
 <%end%>
 
 <% if current_admin != nil %>
-<p><%= link_to "Add Cohort", new_user_cohort_path(@user.id) %></p>
-<p><%= link_to "Edit Course", edit_user_course_path %></p>
-<%= link_to 'Back', :back %>
+<p><%= link_to "Add Cohort", new_user_cohort_path(@course.id) %></p>
 <%end%>

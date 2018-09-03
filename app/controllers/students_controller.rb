@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
     if @student.save
       msg = "New Student Created: #{@student.full_name}."
       flash[:notice] = msg
-      redirect_to user_cohort_path
+      redirect_to user_cohort_path(@user.id, @cohort.course_id) and return
     else
       p @student.errors.messages
       render "new"
@@ -31,7 +31,7 @@ end
   def update
     if @student.update(student_params)
   p "Student successfuly updated"
-  redirect_to user_path(@student.user_id)
+        redirect_to user_cohort_path(@user.id, @cohort.course_id)
 else
   render "edit"
 end
@@ -63,7 +63,7 @@ end
     end
 
     def find_user
-      @user = User.find(params[:user_id])
+      @user = User.find_by(params[:user_id])
     end
 
     def find_cohort

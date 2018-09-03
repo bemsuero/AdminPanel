@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       msg = "New Employee Created: #{@user.full_name}."
       flash[:notice] = msg
-      redirect_to @user
+      redirect_to instructors_index_path
       p @user.education
     else
       p @user.errors.messages
