@@ -1,5 +1,5 @@
 <% if current_admin != nil %>
-<%= form_for [@user, @cohort] do |c| %>
+<%= form_for [@user, @course, @cohort] do |c| %>
 <label>Start Date:</label>
 <%= c.date_select :start, required: true %><br>
 <label>Start End:</label>

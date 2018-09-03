@@ -1,7 +1,7 @@
 class CohortsController < ApplicationController
   before_action :find_cohort, only: [:edit, :show, :update, :destroy]
   before_action :find_user, only: [:new, :show, :edit, :create, :update]
-  before_action :find_course, only: [:new, :show, :edit, :create, :update]
+  before_action :find_course, only: [:new, :edit, :create, :update]
 
   def new
     @cohort = Cohort.new
@@ -44,6 +44,7 @@ end
 
   def index
     @cohorts = Cohort.all
+    @cohort = Cohort.find_by(params[:cohort_id])
   end
 
   def show
@@ -67,7 +68,7 @@ end
     end
 
     def find_course
-      @course = Course.find_by(params[:course_id])
+      @course = Course.find(params[:course_id])
     end
 
 end

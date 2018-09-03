@@ -3,10 +3,15 @@ Rails.application.routes.draw do
   root "sessions#user"
 
   resources :users do
-    resources :courses
-    resources :cohorts
-    resources :students
-  end
+    resources :courses do
+      resources :cohorts, only: [:new, :show, :edit, :create, :update]
+    end
+      resources :cohorts
+  resources :students
+end
+
+
+
 
   resources :admins
   resources :pages

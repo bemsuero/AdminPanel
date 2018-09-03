@@ -15,5 +15,5 @@
 <%end%>
 
 <% if current_admin != nil %>
-<p><%= link_to "Add Cohort", new_user_cohort_path(@course.id) %></p>
+<p><%= link_to "Add Cohort", new_user_course_cohort_path(@user.id, @course.id) %></p>
 <%end%>
