@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Panel</title>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,8 +11,15 @@
   </head>
 
   <body>
+    <div class="nav">
     <%= render 'layouts/header' %>
+  </div>
     <%= render 'shared/messages' %>
+<div class="mainContent">
     <%= yield %>
+  </div>
+  <div class="footer">
+
+  </div>
   </body>
 </html>

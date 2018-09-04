@@ -1,7 +1,7 @@
 class CohortsController < ApplicationController
   before_action :find_cohort, only: [:edit, :show, :update, :destroy]
   before_action :find_user, only: [:new, :show, :edit, :create, :update]
-  before_action :find_course, only: [:new, :edit, :create, :update]
+  before_action :find_course, only: [:new, :create]
 
   def new
     @cohort = Cohort.new
@@ -29,11 +29,12 @@ class CohortsController < ApplicationController
   def update
   if @cohort.update(cohort_params)
     @cohort.name = "#{@course.name}" + " " + "#{@cohort.start.strftime("%B %Y")}"
-    @cohort.save
+    if @cohort.save
   p "Cohort successfuly updated"
   redirect_to user_course_path(@user.id, @course.id)
 else
   render "edit"
+end
 end
 end
 
@@ -48,7 +49,6 @@ end
   end
 
   def show
-
   end
 
 

@@ -4,7 +4,7 @@
 <%= u.text_field :last_name, placeholder: "Enter user's Last Name", required: true %><br>
 <%= u.email_field :email, placeholder: "Enter user's email", required: true %><br>
 <label>Birth Date:</label><br>
-<%= u.date_select :birthdate, placeholder: "When was the user born?", start_year: 1868, end_year: 2004, required: true %><br>
+<%= u.date_select :birthdate, placeholder: "When was the user born?", start_year: (Time.now.year - 150), end_year: (Time.now.year - 14), required: true %><br>
 <label>Salary:</label><br>
 <%= u.number_field :salary, min: 0, step: 1000, placeholder: "What is the user's salary?", required: true %><br>
 <label>Education Level:</label><br>

@@ -4,12 +4,13 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :courses do
-      resources :cohorts, only: [:new, :show, :edit, :create, :update]
+      resources :cohorts, only: [:new, :show, :edit, :create, :update, :destroy] do
+      resources :students
     end
-      resources :cohorts
+    end
+  resources :cohorts
   resources :students
 end
-
 
 
 

@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_08_31_132911) do
     t.string "student_id"
     t.integer "cohort_id"
     t.integer "user_id"
+    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_students_on_student_id", unique: true

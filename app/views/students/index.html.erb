@@ -2,10 +2,10 @@
 <h2>All Students</h2>
 <% @students.each do |u| %>
 <ul>
-<li> <%= link_to "#{u.first_name}'s Profile", user_student_path(u.user_id, u) %> <br>
+<li> <%= link_to "#{u.first_name}'s Profile", user_student_path(u.cohort_id, u.id)%> <br>
   student id:  <%= u.student_id %> <br>
 <% if current_admin != nil %>
-   <%= link_to 'Delete Student', user_student_path(u.user_id, u), data: {confirm: 'This will delete the student.'}, :method=> :delete %>
+   <%= link_to 'Delete Student', user_student_path(u.cohort_id, u.id), data: {confirm: 'This will delete the student.'}, :method=> :delete %>
  </li>
 </ul>
 <%end%>

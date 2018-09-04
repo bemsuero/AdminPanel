@@ -7,6 +7,8 @@ has_secure_password
 validates :password, presence: true, length: {minimum: 8, maximum: 32}
 VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+validates_date :birthdate, on_or_before: Time.now.year - 14
+validates_date :birthdate, on_or_after: Time.now.year - 150
 
   def create_employee_id
     self.employee_id = SecureRandom.hex(6).upcase

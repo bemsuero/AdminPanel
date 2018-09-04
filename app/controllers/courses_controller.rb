@@ -11,10 +11,10 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @course.user_id = @user.id
     if @course.save
-      redirect_to user_path(@user)
+      redirect_to user_path(@user) and return
     else
       p @course.errors.messages
-      render "new"
+      render "new" and return
     end
   end
 
@@ -22,19 +22,20 @@ class CoursesController < ApplicationController
   end
 
   def update
-  if @course.update(course_params)
+   @course.update(course_params)
     p course_params
     @course.cohorts.each do |cohort|
     cohort.name = "#{@course.name}" + " " + "#{cohort.start.strftime("%B %Y")}"
-    cohort.save
+  if cohort.save
   p cohort
   end
   p "Course successfuly updated"
-  redirect_to user_path(@user)
+  redirect_to user_path(@user) and return
 else
-  render "edit"
+  render "edit" and return
 end
 end
+
 
 def destroy
   @course.destroy
@@ -46,13 +47,12 @@ end
   end
 
   def show
-    @cohorts = Cohort.find_by(params[:course_id])
   end
 
   private
 
   def course_params
-    params.require(:course).permit(:name, :hours, :description, :user_id)
+    params.require(:course).permit(:name, :hours, :description)
   end
 
   def find_user
