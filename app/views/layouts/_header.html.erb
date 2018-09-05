@@ -1,13 +1,7 @@
-<h1>Scared Heart Admin Panel</h1>
 <% if current_admin != nil%>
 <%= link_to "#{current_admin.first_name}'s Profile", current_admin %> <br>
 <%= link_to "#{current_admin.first_name}'s Instuctors", instructors_index_path %> <br>
 <%= link_to "Add Instructor", instructors_register_path %> <br>
-<!-- <%#=# #link_to "Add Student", students_new_path %> <br> -->
-<%= link_to "Show All Students", students_index_path %> <br>
-<!-- <%#=# #link_to "Create a new Course", courses_new_path %> <br> -->
-<%= link_to "Show All Courses", allcourses_path %> <br>
-<%= link_to "Show All Cohorts", cohorts_index_path %> <br>
 <%=link_to "Log Out", adminlogout_path, method: :delete %>
 
 

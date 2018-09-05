@@ -1,9 +1,14 @@
 <% if current_admin != nil %>
 <h2>All Students</h2>
+<small>Search By First Name</small>
+<%= form_tag("/studentresults", method: "get") do %>
+<%= text_field_tag(:q) %> <br>
+<%=submit_tag("Search") %>
+<%end%>
 <% @students.each do |u| %>
 <ul>
 <li> <%= link_to "#{u.first_name}'s Profile", user_student_path(u.cohort_id, u.id)%> <br>
-  student id:  <%= u.student_id %> <br>
+  <%= image_tag("https://www.barcodesinc.com/generator/image.php?code=#{u.student_id}&style=197&type=C128B&width=154&height=50&xres=1&font=3") %> <br>
 <% if current_admin != nil %>
    <%= link_to 'Delete Student', user_student_path(u.cohort_id, u.id), data: {confirm: 'This will delete the student.'}, :method=> :delete %>
  </li>

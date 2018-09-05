@@ -3,7 +3,7 @@
 <%= c.text_field :name, placeholder: "Enter course name.", required: true %><br>
 <%= c.number_field :hours, min: 0, step: 1, placeholder: "Course Total Hours", required: true %><br>
 <%= c.text_area :description, placeholder: "Enter course description.", required: true %><br>
-<%= c.submit "Submit" %>
+<%= c.submit "Submit", data: { disable_with: "Creating Course..." } %>
 <%end%>
 <%else%>
 <p>You do not have access to this part of the site.</p>

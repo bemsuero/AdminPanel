@@ -1,0 +1,6 @@
+<h2>Courses matching "<%=@results%>" </h2>
+
+<% @final_results.each do |res| %>
+
+<%= link_to "#{res.name}", user_course_path(res.user_id, res) %> <br>
+<%end%>

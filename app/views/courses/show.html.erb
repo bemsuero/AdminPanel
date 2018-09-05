@@ -1,4 +1,4 @@
-<h2> <%= @course.name%> Landing Page </h2>
+<h2> "<%= @course.name%>" Course Landing Page </h2>
 
 
 <p> Description: <%= @course.description %> </p>
@@ -9,11 +9,12 @@
 <p>No cohorts added yet!</p>
 <% else %>
 <% @course.cohorts.each do |cohorts| %>
-<%= link_to "#{cohorts.name}", user_course_cohort_path(@user.id, @course.id, cohorts.id) %> <%= link_to "Edit Cohort", edit_user_cohort_path(@course.id, cohorts.id) %><br>
-<br>
+<h5><big><%= link_to "#{cohorts.name}", user_course_cohort_path(@user.id, @course.id, cohorts.id) %> </big><small> <%= link_to "Edit Cohort", edit_user_cohort_path(@course.id, cohorts.id) %></small><br>
+</h5>
 <%end%>
 <%end%>
-<%= link_to "Instructor #{@user.first_name}'s Profile", user_path(@user.id) %>
+<%= link_to "Back to Instructor #{@user.first_name}'s Profile", user_path(@user.id) %>
 <% if current_admin != nil %>
 <p><%= link_to "Add Cohort", new_user_course_cohort_path(@user.id, @course.id) %></p>
+<%= link_to 'Delete Course', user_course_path(@course.user_id, @course), data: {confirm: 'This will delete the course.'}, :method=> :delete %>
 <%end%>

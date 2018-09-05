@@ -1,0 +1,6 @@
+<h2>Instructors matching "<%=@results%>" </h2>
+
+<% @final_results.each do |res| %>
+
+<%= link_to "#{res.full_name}", res %> <br>
+<%end%>

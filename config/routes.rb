@@ -27,11 +27,14 @@ end
   get "users/edit"
   delete "users/edit"
   get 'users/show'
+  get "/userresults" => "users#results"
+
 
   get "students/new"
   get 'students/edit'
   get "students/show"
   get 'students/index'
+  get "/studentresults" => "students#results"
 
   get "login" => "sessions#user"
   post "login" => "sessions#create"
@@ -45,10 +48,13 @@ end
   get 'courses/edit'
   get "allcourses" => "courses#index"
   get 'courses/show'
+  get "/courseresults" => "courses#results"
+
 
   get 'cohorts/new'
   get 'cohorts/edit'
   get 'cohorts/show'
   get 'cohorts/index'
+    get "/cohortresults" => "cohorts#results"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

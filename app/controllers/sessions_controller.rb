@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       u_log_in(user)
-      redirect_to root_path
+      redirect_to user
     else
       msg = "Invalid Credentials"
       p msg
-      render "new"
+    redirect_to root_path
     end
   end
 
@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
     else
       msg = "Invalid Credentials"
       p msg
-      render "new"
+      redirect_to adminlogin_path
     end
   end
 

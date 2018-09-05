@@ -1,14 +1,19 @@
 <% if current_admin != nil %>
 <h2>All Cohorts</h2>
+<small>Search By Name</small>
+<%= form_tag("/cohortresults", method: "get") do %>
+<%= text_field_tag(:q) %> <br>
+<%=submit_tag("Search") %>
+<%end%>
+<ol>
 <% @cohorts.each do |c| %>
-<ul>
-<li> <%= link_to "Landing Page for #{c.name}", user_cohort_path(c.course_id, c) %> </li> <br>
+<li> <%= link_to "Landing Page for #{c.name}", user_cohort_path(c.course_id, c) %> <br>
   <% if current_admin != nil %>
     <%= link_to 'Delete Cohort', user_cohort_path(c.course_id, c), data: {confirm: 'This will delete the cohort.'}, :method=> :delete %>
   </li>
-</ul>
 <%end%>
 <%end%>
+</ol>
 <%else%>
 <p>You do not have permission to view this page</p>
 <%end%>

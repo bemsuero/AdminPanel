@@ -26,15 +26,16 @@ class CoursesController < ApplicationController
     p course_params
     @course.cohorts.each do |cohort|
     cohort.name = "#{@course.name}" + " " + "#{cohort.start.strftime("%B %Y")}"
-  if cohort.save
+  cohort.save
   p cohort
-  end
+  p @course.cohorts.count
+end
   p "Course successfuly updated"
   redirect_to user_path(@user) and return
 else
   render "edit" and return
 end
-end
+
 
 
 def destroy
@@ -48,6 +49,35 @@ end
 
   def show
   end
+
+  def search
+  end
+
+  def results
+    @results = params[:q]
+    search_words = params[:q].downcase.split(' ')
+    # you can chain methods with "enter" but why would you even do that.
+    names = Course.pluck(:name)
+    matches = []
+    @final_results = []
+    search_words.each do |word|
+      names.each do |na|
+        if na.downcase.include?(word)
+          matches << na
+        end
+        end
+      end
+      matches.each do |match|
+        # Article.all.each do |article|
+          x = Course.where(name: match)
+          x.each do |y|
+            p @final_results
+            @final_results << y
+            p @final_results
+          # end
+      end
+  end
+end
 
   private
 

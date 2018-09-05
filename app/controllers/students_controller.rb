@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :find_student, only: [:show, :edit, :update, :destroy]
   before_action :find_user, only: [:new, :edit, :create, :index]
-  before_action :find_courses_cohorts, only: [:new, :create, :edit]
+  before_action :find_courses_cohorts, only: [:new, :create]
 
   def new
     @student = Student.new
@@ -50,6 +50,33 @@ end
 
   end
 
+  def search
+  end
+
+  def results
+    @results = params[:q]
+    search_words = params[:q].downcase.split(' ')
+    # you can chain methods with "enter" but why would you even do that.
+    names = Student.pluck(:first_name)
+    matches = []
+    @final_results = []
+    search_words.each do |word|
+      names.each do |na|
+        if na.downcase.include?(word)
+          matches << na
+        end
+        end
+      end
+      matches.each do |match|
+        # Article.all.each do |article|
+          x = Student.where(first_name: match)
+          x.each do |y|
+            @final_results << y
+          # end
+      end
+  end
+  @final_results.uniq!
+end
 
 
   private

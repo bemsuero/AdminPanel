@@ -1,5 +1,8 @@
+<h1>Scared Heart Admin Panel</h1>
 <% if current_admin != nil %>
 <h2>Welcome back <%=@current_admin.first_name%></h2>
+<% elsif current_user != nil %>
+<h2>Welcome back <%=@current_user.first_name%></h2>
 <%else%>
 <h2>Instructor Log In </h2>
 <%= form_for(:session, url: login_path) do |f| %>
@@ -7,4 +10,5 @@
 <%= f.password_field :password, placeholder: "Password", required: true %> <br>
 <%= f.submit "Log In" %>
 <%end%>
+<p>If you do not have a login, please contact <%=link_to "Administration", "#" %>.</p>
 <%end%>

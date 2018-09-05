@@ -1,5 +1,5 @@
 
-<h2> <%= @cohort.name%> Landing Page </h2>
+<h2> Cohort: <%= @cohort.name%> </h2>
 
 
 <p> Description: <%= @cohort.description %> </p>
@@ -12,7 +12,7 @@
 <% else %>
 <ol>
 <% @cohort.students.each do |s| %>
-<li> Name: <%= s.full_name%> ID: <%= s.student_id%> </li>
+<li> Name: <%= s.full_name%> <br> ID: <%= s.student_id%> </li>
 <%end%>
 <%end%>
 
@@ -21,4 +21,5 @@
 <%= link_to "Back to course", user_course_path(@user.id, @cohort.course_id) %> <br>
 <% if current_admin != nil %>
 <%= link_to "Create Student", new_user_course_cohort_student_path(@user.id, @cohort.course_id, @cohort.id) %><br>
+<%= link_to 'Delete Cohort', user_cohort_path(@cohort.course_id, @cohort), data: {confirm: 'This will delete the cohort.'}, :method=> :delete %>
 <%end%>

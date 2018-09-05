@@ -15,6 +15,6 @@
 <%= u.password_field :password_confirmation, placeholder: "confirm password", required: true  %><br>
 <small>Minumum Length: 8 Characters</small><br>
 <small>Maximum Length: 32 Characters</small><br>
-<%= u.submit "Submit" %>
+<%= u.submit "Submit", data: { disable_with: "Creating Instructor..." } %>
 <%end%>
 <%end%>

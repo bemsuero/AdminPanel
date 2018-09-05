@@ -1,5 +1,10 @@
 <% if current_admin != nil %>
 <h2>All Courses</h2>
+<small>Search By Name</small>
+<%= form_tag("/courseresults", method: "get") do %>
+<%= text_field_tag(:q) %> <br>
+<%=submit_tag("Search") %>
+<%end%>
 <ol>
 <% @courses.each do |c| %>
 <li> <%= link_to "Landing Page for #{c.name}", user_course_path(c.user_id, c) %> <br>

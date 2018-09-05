@@ -1,0 +1,6 @@
+<h2>Cohorts matching "<%=@results%>" </h2>
+
+<% @final_results.each do |res| %>
+
+<%= link_to "#{res.name}", user_cohort_path(res.course_id, res) %> <br>
+<%end%>

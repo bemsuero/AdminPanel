@@ -7,7 +7,7 @@
 <label>Education Level:</label><br>
 <%= u.select :education, [["High School", "High School"], ["College", "College"], ["Masters", "Masters"], ["PHD", "PHD"]], required: true %><br>
 <%= u.collection_select :cohort_id, @course.cohorts, :id, :name, {include_blank: true}, required: true %><br>
-<%= u.submit "Submit" %>
+<%= u.submit "Submit", data: { disable_with: "Creating Student..." } %>
 <%end%>
 <%else%>
 <p>You do not have access to this.</p>

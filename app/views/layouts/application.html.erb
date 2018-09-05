@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Panel</title>
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,15 +11,15 @@
   </head>
 
   <body>
-    <div class="nav">
+    <nav>
     <%= render 'layouts/header' %>
-  </div>
+  </nav>
     <%= render 'shared/messages' %>
 <div class="mainContent">
     <%= yield %>
   </div>
-  <div class="footer">
-
-  </div>
+  <footer>
+    This is a footer
+  </footer>
   </body>
 </html>

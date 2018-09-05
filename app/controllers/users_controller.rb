@@ -46,6 +46,34 @@ end
 
   end
 
+  def search
+  end
+
+  def results
+    @results = params[:q]
+    search_words = params[:q].downcase.split(' ')
+    # you can chain methods with "enter" but why would you even do that.
+    names = User.pluck(:first_name)
+    matches = []
+    @final_results = []
+    search_words.each do |word|
+      names.each do |na|
+        if na.downcase.include?(word)
+          matches << na
+        end
+        end
+      end
+      matches.each do |match|
+        # Article.all.each do |article|
+          x = User.where(first_name: match)
+          x.each do |y|
+            p @final_results
+            @final_results << y
+            p @final_results
+          # end
+      end
+  end
+end
 
 
   private
