@@ -5,6 +5,7 @@ class CreateCohorts < ActiveRecord::Migration[5.2]
       t.date :start
       t.date :end
       t.integer :course_id
+      t.integer :user_id
       t.integer :max_students
       t.string :description
 

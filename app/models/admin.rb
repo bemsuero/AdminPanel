@@ -1,5 +1,7 @@
 class Admin < ApplicationRecord
   has_many :users
+  has_one_attached :photo
+  #, default_url: "/images/:style/missing.png" for default photos, going to check if my first thing works though
   before_save { self.email = email.downcase }
   has_secure_password
   validates :password, presence: true, length: {minimum: 8, maximum: 32}
@@ -9,7 +11,7 @@ class Admin < ApplicationRecord
     def full_name
       self.first_name + " " + self.last_name
     end
-    
+
     def User.digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
       BCrypt::Engine.cost

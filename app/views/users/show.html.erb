@@ -1,6 +1,11 @@
 <h2>Welcome <%= @user.first_name%> <%= @user.last_name%> </h2>
 <h3>Instructor Profile</h3>
 <h3>Employee ID: <%=@user.employee_id%></h3>
+<% if @user.photo.attached? %>
+<%= image_tag(@user.photo) %>
+<%else%>
+<p>User has not attached photo yet.</p>
+<%end%>
 
 <ul>
   <li><%= link_to "Edit Profile", edit_user_path %></li>
@@ -11,7 +16,7 @@
 <p>No courses added yet!</p>
 <% else %>
 <% @user.courses.each do |courses| %>
-<h5><big><%= link_to "#{courses.name}", user_course_path(@user.id, courses.id) %></big> <small> <%= link_to "Edit Course", edit_user_course_path(@user.id, courses.id) %> </small>
+<h5><big><%= link_to "#{courses.name}", user_course_path(@user.id, courses.id) %></big> / <small> <%= link_to "Edit Course", edit_user_course_path(@user.id, courses.id) %> </small>
 </h5>
 <%end%>
 <%end%>

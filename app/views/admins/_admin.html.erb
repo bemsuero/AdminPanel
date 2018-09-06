@@ -3,6 +3,7 @@
 <%= u.text_field :first_name, placeholder: "Enter user's First Name", required: true %><br>
 <%= u.text_field :last_name, placeholder: "Enter user's Last Name", required: true %><br>
 <%= u.email_field :email, placeholder: "Enter user's email", required: true %><br>
+Upload Photo: <%= u.file_field :photo %><br>
 <%= u.password_field :password, placeholder: "create a password", required: true %><br>
 <small>Minumum Length: 8 Characters</small><br>
 <small>Maximum Length: 32 Characters</small><br>

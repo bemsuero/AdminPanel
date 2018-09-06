@@ -1,7 +1,7 @@
 class CohortsController < ApplicationController
   before_action :find_cohort, only: [:edit, :show, :update, :destroy]
   before_action :find_user, only: [:new, :show, :edit, :create, :update]
-  before_action :find_course, only: [:new, :create]
+  before_action :find_course, only: [:new, :create, :index, :show]
 
   def new
     @cohort = Cohort.new
@@ -11,12 +11,13 @@ class CohortsController < ApplicationController
   def create
     @cohort = Cohort.new(cohort_params)
     @cohort.course_id = @course.id
+    @cohort.user_id = @user.id
     @cohort.name = "#{@course.name}" + " " + "#{@cohort.start.strftime("%B %Y")}"
     @cohort.description = "#{@course.description}"
     if @cohort.save
       msg = "New Cohort Created: #{@cohort.name}."
       flash[:notice] = msg
-      redirect_to user_course_path(@user.id, @course.id)
+      redirect_to user_course_cohort_path(@user.id, @course.id, @cohort.id)
     else
       p @cohort.errors.messages
       render "new"
@@ -27,6 +28,7 @@ class CohortsController < ApplicationController
   end
 
   def update
+    @course = Course.find(params[:id])
   if @cohort.update(cohort_params)
     @cohort.name = "#{@course.name}" + " " + "#{@cohort.start.strftime("%B %Y")}"
     if @cohort.save

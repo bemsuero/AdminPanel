@@ -2,6 +2,7 @@
 <%= form_for [@user, @course, @cohort, @student] do |u| %>
 <%= u.text_field :first_name, placeholder: "Student's First Name", required: true %><br>
 <%= u.text_field :last_name, placeholder: "Student's Last Name", required: true %><br>
+Upload Photo: <%= u.file_field :photo %><br>
 <label>Birth Date:</label><br>
 <%= u.date_select :birthdate, placeholder: "When was the student born?", start_year: (Time.now.year - 150), end_year: (Time.now.year - 14), required: true %><br>
 <label>Education Level:</label><br>

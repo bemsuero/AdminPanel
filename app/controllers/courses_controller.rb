@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @course.user_id = @user.id
     if @course.save
-      redirect_to user_path(@user) and return
+      redirect_to user_course_path(@user.id, @course.id)
     else
       p @course.errors.messages
       render "new" and return

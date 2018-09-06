@@ -1,15 +1,15 @@
 <h2> "<%= @course.name%>" Course Landing Page </h2>
 
 
-<p> Description: <%= @course.description %> </p>
-<p> Total Hours: <%= @course.hours %> </p>
+<p> Course Objective: <%= @course.description %> </p>
+<p> Total Credits: <%= @course.hours %> </p>
 
 <h3>Cohorts for this course</h3>
 <% if @course.cohorts.empty? %>
 <p>No cohorts added yet!</p>
 <% else %>
 <% @course.cohorts.each do |cohorts| %>
-<h5><big><%= link_to "#{cohorts.name}", user_course_cohort_path(@user.id, @course.id, cohorts.id) %> </big><small> <%= link_to "Edit Cohort", edit_user_cohort_path(@course.id, cohorts.id) %></small><br>
+<h5><big><%= link_to "#{cohorts.name}", user_course_cohort_path(@user.id, @course.id, cohorts.id) %> </big> / <small> <%= link_to "Edit Cohort", edit_user_cohort_path(@course.id, cohorts.id) %></small><br>
 </h5>
 <%end%>
 <%end%>

@@ -21,5 +21,5 @@
 <%= link_to "Back to course", user_course_path(@user.id, @cohort.course_id) %> <br>
 <% if current_admin != nil %>
 <%= link_to "Create Student", new_user_course_cohort_student_path(@user.id, @cohort.course_id, @cohort.id) %><br>
-<%= link_to 'Delete Cohort', user_cohort_path(@cohort.course_id, @cohort), data: {confirm: 'This will delete the cohort.'}, :method=> :delete %>
+<%= link_to 'Delete Cohort', user_course_cohort_path(@user.id, @course.id, @cohort.id), data: {confirm: 'This will delete the cohort.'}, :method=> :delete %>
 <%end%>
