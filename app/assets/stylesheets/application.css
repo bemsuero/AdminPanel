@@ -25,7 +25,8 @@
 html {
 font-family: 'Nunito', sans-serif;
   line-height: 2.5vh;
-  background-color: var(--offwhite);
+  background-image: url("background.png");
+  overflow-x: hidden;
 }
 
 body {
@@ -38,29 +39,28 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--red);
+  color: var(--green);
 }
 
 nav {
   grid-row: 1 / 2;
   grid-column: 1 / -1;
-  border: 3px solid var(--green);
   height: 100%;
   width: 85%;
   display: grid;
   grid-template: 100% / 25% 25% 25% 25%;
   padding-left: 15%;
   padding-top: 0.5%;
-  padding-bottom: 0.25%;
+  padding-bottom: 0.75%;
   padding-right: 0;
-  background-color: var(--gray);
+  border-bottom: 1px solid var(--red);
 }
 
 nav a:nth-child(1) {
   grid-column: 1 / 2;
   grid-row: 1 / 1;
   margin-bottom: 4%;
-  max-width: 60%;
+  max-width: 65%;
   max-height: 95%;
 }
 
@@ -68,7 +68,7 @@ nav a:nth-child(3) {
   grid-column: 2 / 3;
   grid-row: 1 / 1;
   margin-bottom: 4%;
-    max-width: 60%;
+    max-width: 65%;
     max-height: 95%;
 }
 
@@ -76,7 +76,7 @@ nav a:nth-child(5) {
   grid-column: 3 / 4;
   grid-row: 1 / 1;
   margin-bottom: 4%;
-    max-width: 60%;
+    max-width: 65%;
     max-height: 95%;
 }
 
@@ -84,36 +84,73 @@ nav a:nth-child(7) {
   grid-column: 4 / 5;
   grid-row: 1 / 1;
   margin-bottom: 4%;
-    max-width: 60%;
+    max-width: 65%;
     max-height: 95%;
 }
 
 .mainContent {
   grid-row: 2 / 3;
   grid-column: 2 / 3;
-  border: 3px solid var(--green);
   height: 70vh;
-  width: 100%;
-  overflow: auto;
+  width: 75vw;
+  overflow-y: auto;
   margin-top: 2%;
   padding: 5%;
-  background-color: var(--gray);
+  animation-duration: 2.5s;
+  margin-left: 10%;
 }
 
 .mainContent h1 {
-  text-align: center;
+  /* text-align: center; */
 }
 .mainContent h2 {
-  text-align: center;
+  /* text-align: center; */
+  margin-left: 7%;
+}
+
+.mainContent form {
+  margin-left: 7%;
+}
+
+.mainContent small p {
+  margin-left: 7%;
+}
+
+.mainContent img {
+  max-height: 20%;
+  border: 2px solid var(--gray);
+}
+
+.mainContent p {
+  word-break: normal;
+  max-width: 45%;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.userInfo img {
+  max-width: 20%;
 }
 
 footer {
   grid-row: 3 / 4;
   grid-column: 1 / -1;
-  border: 3px solid var(--green);
   height: 100%;
   width: 100%;
   text-align: center;
   padding-top: 1%;
-  background-color: var(--gray);
+  border-top: 1px solid var(--red);
+}
+
+#opener {
+  border: none;
+  color: var(--red);
+  font-size: 2vh;
+}
+
+form input {
+  border-radius: 3px;
+  margin-bottom: 0.5%;
 }

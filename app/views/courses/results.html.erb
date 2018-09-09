@@ -1,6 +1,11 @@
+<% if current_admin != nil %>
 <h2>Courses matching "<%=@results%>" </h2>
 
 <% @final_results.each do |res| %>
 
 <%= link_to "#{res.name}", user_course_path(res.user_id, res) %> <br>
+<%end%>
+
+<%else%>
+<p>You do not have access to this.</p>
 <%end%>

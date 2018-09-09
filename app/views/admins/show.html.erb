@@ -1,12 +1,16 @@
 <% if current_admin != nil%>
 <h2>Welcome <%= @admin.first_name%> <%= @admin.last_name%> </h2>
-
+<% if @admin.photo.attached? %>
+<%= image_tag(@admin.photo) %>
+<%else%>
+<p>Admin has not attached photo yet.</p>
+<%end%>
 
 
 <ul>
-  <li><%= link_to "Show All Students", students_index_path %></li> 
+  <li><%= link_to "Show All Students", students_index_path %></li>
   <li><%= link_to "Show All Courses", allcourses_path %> </li>
-  <li><%= link_to "Show All Cohorts", cohorts_index_path %></li> 
+  <li><%= link_to "Show All Cohorts", cohorts_index_path %></li>
   <li><%= link_to "Edit Profile", edit_admin_path %></li>
 </ul>
 

@@ -1,5 +1,7 @@
+
+
 <% if current_admin != nil%>
-<!-- <i class="far fa-user"></i>--><%= link_to "#{current_admin.first_name}'s Dashboard", current_admin %> <br>
+<!-- <i class="far fa-user"></i>--><%= link_to "#{current_admin.first_name}'s Dashboard", current_admin%> <br>
 <!--<i class="fas fa-chalkboard-teacher"></i>--><%= link_to "#{current_admin.first_name}'s Instuctors", instructors_index_path %> <br>
 <!--<i class="fas fa-user-plus"></i>--><%= link_to "Add Instructor", instructors_register_path %> <br>
 <!--<i class="fas fa-sign-out-alt"></i>--><%=link_to "Log Out", adminlogout_path, method: :delete %>

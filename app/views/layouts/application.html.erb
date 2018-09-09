@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Panel</title>
+    <title>U.A. School</title>
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
+<!-- Icons (may not use) -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- Dialog Box -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Animation -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -16,11 +25,13 @@
     <%= render 'layouts/header' %>
   </nav>
     <%= render 'shared/messages' %>
-<div class="mainContent">
+<div class="mainContent animated fadeIn">
     <%= yield %>
   </div>
+
   <footer>
-    This is a footer
+  U.A. School, Tokyo, Japan<br>
+  Vents LLC
   </footer>
   </body>
 </html>

@@ -1,3 +1,4 @@
+<% if current_user != nil || current_admin != nil %>
 <h2> "<%= @course.name%>" Course Landing Page </h2>
 
 
@@ -13,8 +14,11 @@
 </h5>
 <%end%>
 <%end%>
-<%= link_to "Back to Instructor #{@user.first_name}'s Profile", user_path(@user.id) %>
+<%= link_to "Back to Instructor's Profile", user_path(@course.user_id) %>
 <% if current_admin != nil %>
 <p><%= link_to "Add Cohort", new_user_course_cohort_path(@user.id, @course.id) %></p>
 <%= link_to 'Delete Course', user_course_path(@course.user_id, @course), data: {confirm: 'This will delete the course.'}, :method=> :delete %>
+<%end%>
+<%else%>
+<p>You do not have access to this.</p>
 <%end%>

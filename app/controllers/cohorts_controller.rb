@@ -1,7 +1,7 @@
 class CohortsController < ApplicationController
   before_action :find_cohort, only: [:edit, :show, :update, :destroy]
   before_action :find_user, only: [:new, :show, :edit, :create, :update]
-  before_action :find_course, only: [:new, :create, :index, :show]
+  before_action :find_course, only: [:new, :create, :show]
 
   def new
     @cohort = Cohort.new
@@ -12,7 +12,7 @@ class CohortsController < ApplicationController
     @cohort = Cohort.new(cohort_params)
     @cohort.course_id = @course.id
     @cohort.user_id = @user.id
-    @cohort.name = "#{@course.name}" + " " + "#{@cohort.start.strftime("%B %Y")}"
+    @cohort.name = "#{@course.name}" + " " + "#{@cohort.startdate.strftime("%B %Y")}"
     @cohort.description = "#{@course.description}"
     if @cohort.save
       msg = "New Cohort Created: #{@cohort.name}."
@@ -30,7 +30,7 @@ class CohortsController < ApplicationController
   def update
     @course = Course.find(params[:id])
   if @cohort.update(cohort_params)
-    @cohort.name = "#{@course.name}" + " " + "#{@cohort.start.strftime("%B %Y")}"
+    @cohort.name = "#{@course.name}" + " " + "#{@cohort.start_date.strftime("%B %Y")}"
     if @cohort.save
   p "Cohort successfuly updated"
   redirect_to user_course_path(@user.id, @course.id)
@@ -86,7 +86,7 @@ end
   private
 
   def cohort_params
-    params.require(:cohort).permit(:name, :start, :end, :max_students, :description)
+    params.require(:cohort).permit(:name, :startdate, :enddate, :max_students, :description)
   end
 
   def find_cohort

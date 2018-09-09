@@ -1,11 +1,11 @@
-
+<% if current_user != nil || current_admin != nil %>
 <h2> Cohort: <%= @cohort.name%> </h2>
 
 
-<p> Description: <%= @cohort.description %> </p>
+<p> Objective: <%= @cohort.description %> </p>
 <p> Max Students: <%= @cohort.max_students %> </p>
-<p> Start date: <%= @cohort.start.strftime("%B %e %Y") %> </p>
-<p> End date: <%= @cohort.end.strftime("%B %e %Y") %> </p>
+<p> Start date: <%= @cohort.startdate.strftime("%B %e %Y") %> </p>
+<p> End date: <%= @cohort.enddate.strftime("%B %e %Y") %> </p>
 <h3>Students Enrolled:</h3>
 <% if @cohort.students.empty? %>
 <p>No students added yet!</p>
@@ -22,4 +22,8 @@
 <% if current_admin != nil %>
 <%= link_to "Create Student", new_user_course_cohort_student_path(@user.id, @cohort.course_id, @cohort.id) %><br>
 <%= link_to 'Delete Cohort', user_course_cohort_path(@user.id, @course.id, @cohort.id), data: {confirm: 'This will delete the cohort.'}, :method=> :delete %>
+<%end%>
+
+<%else%>
+<p>You do not have access to this.</p>
 <%end%>

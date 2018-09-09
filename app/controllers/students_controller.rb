@@ -82,7 +82,7 @@ end
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :birthdate, :education, :photo, :student_id)
+    params.require(:student).permit(:first_name, :last_name, :birthdate, :phone, :education, :photo, :student_id)
   end
 
   def find_student

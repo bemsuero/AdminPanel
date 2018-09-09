@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2018_09_06_135706) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
-    t.date "start"
-    t.date "end"
+    t.date "startdate"
+    t.date "enddate"
     t.integer "course_id"
     t.integer "user_id"
     t.integer "max_students"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_135706) do
     t.string "last_name"
     t.string "education"
     t.date "birthdate"
+    t.string "phone"
     t.string "student_id"
     t.integer "cohort_id"
     t.integer "user_id"
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_135706) do
     t.string "email"
     t.date "birthdate"
     t.integer "salary"
+    t.string "phone"
     t.string "education"
     t.string "employee_id"
     t.integer "admin_id"

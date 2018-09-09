@@ -5,14 +5,20 @@
 <%= text_field_tag(:q) %> <br>
 <%=submit_tag("Search") %>
 <%end%>
+<% if @students.empty? %>
+<p>No students added yet!</p>
+<% else %>
 <% @students.each do |u| %>
+<div class="userInfo">
 <ul>
 <li> <%= link_to "#{u.first_name}'s Profile", user_student_path(u.cohort_id, u.id)%> <br>
-  <%= image_tag("https://www.barcodesinc.com/generator/image.php?code=#{u.student_id}&style=197&type=C128B&width=154&height=50&xres=1&font=3") %> <br>
+  <%= image_tag("https://chart.googleapis.com/chart?chl=#{u.student_id}%0A&chs=200x200&cht=qr&chld=H%7C0") %> <br>
 <% if current_admin != nil %>
    <%= link_to 'Delete Student', user_student_path(u.cohort_id, u.id), data: {confirm: 'This will delete the student.'}, :method=> :delete %>
  </li>
 </ul>
+</div>
+<%end%>
 <%end%>
 <%end%>
 <%else%>

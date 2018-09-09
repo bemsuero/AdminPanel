@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.date :birthdate
       t.integer :salary
+      t.string :phone
       t.string :education
       t.string :employee_id
       t.integer :admin_id

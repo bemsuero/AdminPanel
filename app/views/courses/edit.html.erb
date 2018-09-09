@@ -1,2 +1,6 @@
+<% if current_user != nil || current_admin != nil %>
+<%else%>
+<p>You do not have access to this.</p>
+<%end%>
 <h2>Editing Course <%=@course.name%> </h2>
 <%= render "form" %>

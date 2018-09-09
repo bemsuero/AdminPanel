@@ -1,2 +1,6 @@
+<% if current_admin != nil %>
 <h2>New Cohort for Course <%=@course.name%> </h2>
+<%else%>
+<p>You do not have access to this.</p>
+<%end%>
 <%= render "form" %>

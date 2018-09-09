@@ -2,9 +2,10 @@
 <%= form_for [@user, @course, @cohort, @student] do |u| %>
 <%= u.text_field :first_name, placeholder: "Student's First Name", required: true %><br>
 <%= u.text_field :last_name, placeholder: "Student's Last Name", required: true %><br>
+<%= telephone_field :student, :phone, placeholder: "Emergency Contact Number", required: true %> <br>
 Upload Photo: <%= u.file_field :photo %><br>
 <label>Birth Date:</label><br>
-<%= u.date_select :birthdate, placeholder: "When was the student born?", start_year: (Time.now.year - 150), end_year: (Time.now.year - 14), required: true %><br>
+<%= u.date_select :birthdate, :order => [:month, :day, :year], placeholder: "When was the student born?", start_year: (Time.now.year - 150), end_year: (Time.now.year - 14), required: true %><br>
 <label>Education Level:</label><br>
 <%= u.select :education, [["High School", "High School"], ["College", "College"], ["Masters", "Masters"], ["PHD", "PHD"]], required: true %><br>
 <%= u.collection_select :cohort_id, @course.cohorts, :id, :name, {include_blank: true}, required: true %><br>

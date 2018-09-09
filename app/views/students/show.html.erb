@@ -1,5 +1,11 @@
 <% if current_admin != nil %>
 <h2><%=@student.full_name%>'s records.</h2>
+<h3>Student ID: <%=@student.student_id%></h3>
+<% if @student.photo.attached? %>
+<%= image_tag(@student.photo) %>
+<%else%>
+<p>Photo has not been attached for student yet.</p>
+<%end%>
 
 <li><%= link_to "Edit Student Information", edit_user_student_path %></li>
 <%else%>

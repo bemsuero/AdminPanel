@@ -1,6 +1,6 @@
 <% if current_admin != nil %>
-<h2>All Instructors</h2>
-<small>Search By First Name</small>
+<h2>All Instructors <em><small>click for courses</small></em></h2>
+<small> <p> Search By First Name </p> </small>
 <%= form_tag("/userresults", method: "get") do %>
 <%= text_field_tag(:q) %> <br>
 <%=submit_tag("Search") %>
@@ -9,12 +9,14 @@
 <p>No Instructors hired yet!</p>
 <% else %>
 <% @users.each do |u| %>
+<div class="userInfo">
 <ul>
 <li><big> <%= link_to "#{u.full_name}", u %></big> <br>
-  <%= image_tag("https://www.barcodesinc.com/generator/image.php?code=#{u.employee_id}&style=197&type=C128B&width=154&height=50&xres=1&font=3") %> <br>
+  <%= image_tag("https://chart.googleapis.com/chart?chl=#{u.employee_id}%0A&chs=200x200&cht=qr&chld=H%7C0") %> <br>
  <small><%= link_to 'Fire Instructor', u, data: {confirm: 'This will terminate the instructor.'}, :method=> :delete %> </small>
  </li>
 </ul>
+</div>
 <%end%>
 <%end%>
 <%else%>

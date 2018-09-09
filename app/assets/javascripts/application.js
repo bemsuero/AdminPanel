@@ -12,5 +12,15 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+  console.log("GO.")
+  $( "#dialog" ).dialog({ autoOpen: false });
+  $( "#opener" ).click(function() {
+    $("#dialog").removeClass("hidden");
+    $( "#dialog" ).dialog( "open" );
+  });
+});

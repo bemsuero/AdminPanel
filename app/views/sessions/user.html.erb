@@ -1,4 +1,4 @@
-<h1>Scared Heart Admin Panel</h1>
+<h1>U.A. School Admin Panel</h1>
 <% if current_admin != nil %>
 <h2>Welcome back <%=@current_admin.first_name%></h2>
 <% elsif current_user != nil %>
@@ -10,5 +10,7 @@
 <%= f.password_field :password, placeholder: "Password", required: true %> <br>
 <%= f.submit "Log In" %>
 <%end%>
-<p>If you do not have a login, please contact <%=link_to "Administration", "#" %>.</p>
+<p>If you do not have a login, please contact <button id="opener">Administration</button>.</p>
+<div class="hidden" id="dialog" title="Contact Us.">Bemilton Suero Contact Info: <br><a href="https://github.com/bemsuero">GitHub</a><br> <a href="https://www.linkedin.com/in/bemilton-suero/">Linkedin</a><br> <a href="https://ko-fi.com/milesmorales">Ko-Fi</a><br> </div>
+
 <%end%>

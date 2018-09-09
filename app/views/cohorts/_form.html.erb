@@ -1,9 +1,9 @@
 <% if current_admin != nil %>
 <%= form_for [@user, @course, @cohort] do |c| %>
 <label>Start Date:</label>
-<%= c.date_select :start, required: true %><br>
+<%= c.date_select :startdate, :order => [:month, :day, :year], start_year: (Time.now.year), required: true %><br>
 <label>End Date:</label>
-<%= c.date_select :end, required: true %><br>
+<%= c.date_select :enddate, :order => [:month, :day, :year], start_year: (Time.now.year), required: true %><br>
 Students in Cohort: <%= c.number_field :max_students, min: 1, max: 25, step: 1, placeholder: "Max (25)", required: true %> <br>
 <%= c.submit "Submit", data: { disable_with: "Creating Cohort..." } %>
 <%end%>

@@ -1,3 +1,4 @@
+<% if current_user != nil || current_admin != nil %>
 <h2>Editing Instructor <%=@user.first_name%> <%=@user.last_name%> </h2>
 <h3>With Email: <%=@user.email%></h3>
 <% if current_user != nil%>
@@ -16,4 +17,7 @@ Upload Photo: <%= u.file_field :photo %><br>
 <% if current_admin != nil %>
 <%= render "instructor" %>
 <%= link_to 'Fire Instructor', @user, data: {confirm: 'This will delete the user.'}, :method=> :delete %>
+<%end%>
+<%else%>
+<p>You do not have access to this.</p>
 <%end%>

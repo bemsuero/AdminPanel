@@ -12,29 +12,18 @@ Rails.application.routes.draw do
   resources :students
 end
 
-
-
   resources :admins
   resources :pages
 
   get 'admin_register' => "admins#new"
-  get 'admins/show'
-  get 'admins/edit'
-  get 'admins/index'
 
   get "instructors_register" => "users#new"
   get "instructors_index" => "users#index"
-  get "users/edit"
   delete "users/edit"
-  get 'users/show'
-  get "/userresults" => "users#results"
+  get "userresults" => "users#results"
 
-
-  get "students/new"
-  get 'students/edit'
-  get "students/show"
-  get 'students/index'
-  get "/studentresults" => "students#results"
+  get "students_index" => "students#index"
+  get "studentresults" => "students#results"
 
   get "login" => "sessions#user"
   post "login" => "sessions#create"
@@ -44,17 +33,10 @@ end
   post "adminlogin" => "sessions#admincreate"
   delete "adminlogout" => "sessions#admindestroy"
 
-  get "courses/new"
-  get 'courses/edit'
   get "allcourses" => "courses#index"
-  get 'courses/show'
-  get "/courseresults" => "courses#results"
+  get "courseresults" => "courses#results"
 
-
-  get 'cohorts/new'
-  get 'cohorts/edit'
-  get 'cohorts/show'
-  get 'cohorts/index'
-    get "/cohortresults" => "cohorts#results"
+  get "cohorts_index" => "cohorts#index"
+    get "cohortresults" => "cohorts#results"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

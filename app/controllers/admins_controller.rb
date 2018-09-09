@@ -28,6 +28,8 @@ end
 
   def show
     @admin = Admin.find(params[:id])
+    @user = User.find_by(params[:user_id])
+    @cohort = Cohort.find(params[:id])
   end
 
   def index

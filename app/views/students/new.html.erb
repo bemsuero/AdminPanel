@@ -1,2 +1,6 @@
+<% if current_admin != nil %>
 <h2>Creating new Student for  <%= @course.name %></h2>
 <%= render "student" %>
+<%else%>
+<p>You do not have access to this.</p>
+<%end%>

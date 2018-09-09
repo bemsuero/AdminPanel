@@ -10,7 +10,9 @@ VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
 validates_date :birthdate, on_or_before: Time.now.year - 14
 validates_date :birthdate, on_or_after: Time.now.year - 150
-
+validates :first_name, :last_name, :email, :birthdate, :salary, :education, presence: true
+VALID_PHONE_REGEX = /\d/m
+validates :phone, presence: true, length: {minimum: 10}, format: { with: VALID_PHONE_REGEX }
 
   def create_employee_id
     self.employee_id = SecureRandom.hex(6).upcase
