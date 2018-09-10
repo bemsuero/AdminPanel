@@ -5,7 +5,7 @@
 <%= u.text_field :last_name, placeholder: "Student's Last Name", required: true %><br>
 Upload Photo: <%= u.file_field :photo %><br>
 <label>Birth Date:</label><br>
-<%= u.date_select :birthdate, placeholder: "When was the student born?", start_year: 1868, end_year: 2004, required: true %><br>
+<%= u.date_select :birthdate, :order => [:month, :day, :year], placeholder: "When was the student born?", start_year: 1868, end_year: 2004, required: true %><br>
 <label>Education Level:</label><br>
 <%= u.select :education, [["High School", "High School"], ["College", "College"], ["Masters", "Masters"], ["PHD", "PHD"]], required: true %><br>
 <%= u.submit "Submit" %>

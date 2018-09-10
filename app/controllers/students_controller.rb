@@ -31,7 +31,7 @@ end
   def update
     if @student.update(student_params)
   p "Student successfuly updated"
-        redirect_to user_course_cohort_path(@user.id, @cohort.course_id, @cohort.id)
+        redirect_to students_index_path
 else
   render "edit"
 end
@@ -82,7 +82,7 @@ end
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :birthdate, :phone, :education, :photo, :student_id)
+    params.require(:student).permit(:first_name, :last_name, :birthdate, :phone, :education, :photo)
   end
 
   def find_student

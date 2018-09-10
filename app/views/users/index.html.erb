@@ -1,5 +1,5 @@
 <% if current_admin != nil %>
-<h2>All Instructors <em><small>click for courses</small></em></h2>
+<h2 class="searchTitle">All Instructors <em><small>click for courses</small></em></h2>
 <small> <p> Search By First Name </p> </small>
 <%= form_tag("/userresults", method: "get") do %>
 <%= text_field_tag(:q) %> <br>

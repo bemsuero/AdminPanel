@@ -15,8 +15,20 @@ Upload Photo: <%= u.file_field :photo %><br>
 <%end%>
 <%end%>
 <% if current_admin != nil %>
-<%= render "instructor" %>
-<%= link_to 'Fire Instructor', @user, data: {confirm: 'This will delete the user.'}, :method=> :delete %>
+<%= form_for @user do |u| %>
+<%= u.text_field :first_name, placeholder: "Enter user's First Name", required: true %><br>
+<%= u.text_field :last_name, placeholder: "Enter user's Last Name", required: true %><br>
+<%= u.email_field :email, placeholder: "Enter user's email", required: true %><br>
+<%= telephone_field :user, :phone, placeholder: "Phone Number", required: true %> <br>
+Upload Photo: <%= u.file_field :photo %><br>
+<label>Birth Date:</label><br>
+<%= u.date_select :birthdate, :order => [:month, :day, :year], placeholder: "When was the user born?", start_year: (Time.now.year - 150), end_year: (Time.now.year - 14), required: true %><br>
+<label>Yearly Salary:</label><br>
+<%= u.number_field :salary, min: 0, step: 1000, placeholder: "What is the user's salary?", required: true %><br>
+<label>Education Level:</label><br>
+<%= u.select :education, [["High School", "High School"], ["College", "College"], ["Masters", "Masters"], ["PHD", "PHD"]], required: true %><br>
+<%= u.submit "Submit", data: { disable_with: "Creating Instructor..." } %>
+<%end%><%= link_to 'Fire Instructor', @user, data: {confirm: 'This will delete the user.'}, :method=> :delete %>
 <%end%>
 <%else%>
 <p>You do not have access to this.</p>

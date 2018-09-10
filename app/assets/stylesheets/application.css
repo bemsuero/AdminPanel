@@ -17,7 +17,7 @@
 :root {
   --testBorder: 2px solid rgb(0, 0, 0);
   --gray: rgb(165, 169, 178);
-  --green: rgb(45, 113, 90);
+  --green: rgb(48,182,137);
   --red: rgb(202, 28, 36);
   --offwhite: rgb(241, 239, 242);
 }
@@ -40,6 +40,12 @@ body {
 a {
   text-decoration: none;
   color: var(--green);
+  transition-duration: 1s;
+}
+
+nav a:hover {
+  font-size: 2.32vh;
+  transition-duration: 1s;
 }
 
 nav {
@@ -49,7 +55,7 @@ nav {
   width: 85%;
   display: grid;
   grid-template: 100% / 25% 25% 25% 25%;
-  padding-left: 15%;
+  padding-left: 13%;
   padding-top: 0.5%;
   padding-bottom: 0.75%;
   padding-right: 0;
@@ -101,10 +107,8 @@ nav a:nth-child(7) {
 }
 
 .mainContent h1 {
-  /* text-align: center; */
 }
-.mainContent h2 {
-  /* text-align: center; */
+.searchTitle {
   margin-left: 7%;
 }
 

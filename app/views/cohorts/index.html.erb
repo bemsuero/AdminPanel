@@ -1,5 +1,5 @@
 <% if current_admin != nil %>
-<h2>All Cohorts</h2>
+<h2 class="searchTitle">All Cohorts</h2>
 <small>Search By Name</small>
 <%= form_tag("/cohortresults", method: "get") do %>
 <%= text_field_tag(:q) %> <br>
