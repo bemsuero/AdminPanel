@@ -1,6 +1,6 @@
 <% if current_admin != nil %>
 <h2 class="searchTitle">All Courses</h2>
-<small>Search By Name</small>
+<small> <p> Search By Name </p> </small>
 <%= form_tag("/courseresults", method: "get") do %>
 <%= text_field_tag(:q) %> <br>
 <%=submit_tag("Search") %>
@@ -9,7 +9,7 @@
 <% @courses.each do |c| %>
 <li> <%= link_to "Landing Page for #{c.name}", user_course_path(c.user_id, c) %> <br>
   <% if current_admin != nil %>
-    <%= link_to 'Delete Course', user_course_path(c.user_id, c), data: {confirm: 'This will delete the course.'}, :method=> :delete %>
+    <%= link_to 'Delete Course', user_course_path(c.user_id, c), :method=> :delete, data: {confirm: 'This will delete the course.', remote:  true}, class: "terminate" %>
   </li>
 <%end%>
 <%end%>

@@ -33,8 +33,10 @@ end
 end
 
 def destroy
+  respond_to do |format|
+      format.js
+    end
   @user.destroy
-  redirect_to instructors_index_path
 end
 
   def index

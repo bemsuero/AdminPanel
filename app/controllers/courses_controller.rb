@@ -39,8 +39,10 @@ end
 
 
 def destroy
+  respond_to do |format|
+      format.js
+    end
   @course.destroy
-  redirect_to allcourses_path
 end
 
   def index

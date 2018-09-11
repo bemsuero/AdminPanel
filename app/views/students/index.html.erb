@@ -1,6 +1,6 @@
 <% if current_admin != nil %>
 <h2 class="searchTitle">All Students</h2>
-<small>Search By First Name</small>
+<small> <p> Search By First Name </p> </small>
 <%= form_tag("/studentresults", method: "get") do %>
 <%= text_field_tag(:q) %> <br>
 <%=submit_tag("Search") %>
@@ -14,7 +14,7 @@
 <li> <%= link_to "#{u.first_name}'s Profile", user_student_path(u.cohort_id, u.id)%> <br>
   <%= image_tag("https://chart.googleapis.com/chart?chl=#{u.student_id}%0A&chs=200x200&cht=qr&chld=H%7C0") %> <br>
 <% if current_admin != nil %>
-   <%= link_to 'Delete Student', user_student_path(u.cohort_id, u.id), data: {confirm: 'This will delete the student.'}, :method=> :delete %>
+   <%= link_to 'Delete Student', user_student_path(u.cohort_id, u.id), :method=> :delete, data: {confirm: 'This will delete the student.', remote:  true}, class: "terminate" %>
  </li>
 </ul>
 </div>

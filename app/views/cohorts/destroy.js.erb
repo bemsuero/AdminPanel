@@ -1,0 +1,4 @@
+$(".terminate").bind("ajax:success", function() {
+  console.log("deleting...");
+  $(this).closest("li").fadeOut();
+});

@@ -38,8 +38,10 @@ end
 end
 
 def destroy
-  @student.destroy
-  redirect_to students_index_path
+  respond_to do |format|
+      format.js
+    end
+    @student.destroy
 end
 
   def index

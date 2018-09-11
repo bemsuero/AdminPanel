@@ -24,7 +24,7 @@
 
 html {
 font-family: 'Nunito', sans-serif;
-  line-height: 2.5vh;
+  line-height: 2.7vh;
   background-image: url("background.png");
   overflow-x: hidden;
 }
@@ -136,6 +136,7 @@ nav a:nth-child(7) {
 
 .userInfo img {
   max-width: 20%;
+  box-shadow: 2px 2px 8px black;
 }
 
 footer {

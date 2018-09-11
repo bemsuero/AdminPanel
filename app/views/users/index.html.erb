@@ -13,7 +13,7 @@
 <ul>
 <li><big> <%= link_to "#{u.full_name}", u %></big> <br>
   <%= image_tag("https://chart.googleapis.com/chart?chl=#{u.employee_id}%0A&chs=200x200&cht=qr&chld=H%7C0") %> <br>
- <small><%= link_to 'Fire Instructor', u, data: {confirm: 'This will terminate the instructor.'}, :method=> :delete %> </small>
+ <small><%= link_to 'Fire Instructor', u, :method=> :delete, data: {confirm: 'This will fire the instructor.', remote:  true}, class: "terminate" %> </small>
  </li>
 </ul>
 </div>

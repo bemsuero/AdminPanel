@@ -41,8 +41,10 @@ end
 end
 
 def destroy
+  respond_to do |format|
+      format.js
+    end
   @cohort.destroy
-  redirect_to cohorts_index_path
 end
 
   def index
