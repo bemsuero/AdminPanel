@@ -1,29 +1,30 @@
-<% if current_user != nil || current_admin != nil %>
-<h2>Welcome <%= @user.first_name%> <%= @user.last_name%> </h2>
+<% if u_logged_in? || current_admin != nil %>
+<h2>Welcome <%= @current_user.first_name%> <%= @current_user.last_name%> </h2>
 <h3>Instructor Profile</h3>
-<h3>Employee ID: <%=@user.employee_id%></h3>
-<% if @user.photo.attached? %>
-<%= image_tag(@user.photo) %>
+<h3>Employee ID: <%=@current_user.employee_id%></h3>
+<% if @current_user.photo.attached? %>
+<%= image_tag(@current_user.photo) %>
 <%else%>
 <p>User has not attached photo yet.</p>
 <%end%>
 
+
 <ul>
-  <li><%= link_to "Edit Profile", edit_user_path %></li>
+  <li><%= link_to "Edit Profile", edit_user_path(@current_user) %></li>
 </ul>
 
 <h3>Courses assigned so far:</h3>
-<% if @user.courses.empty? %>
+<% if @current_user.courses.empty? %>
 <p>No courses added yet!</p>
 <% else %>
-<% @user.courses.each do |courses| %>
-<h5><big><%= link_to "#{courses.name}", user_course_path(@user.id, courses.id) %></big> / <small> <%= link_to "Edit Course", edit_user_course_path(@user.id, courses.id) %> </small>
+<% @current_user.courses.each do |courses| %>
+<h5><big><%= link_to "#{courses.name}", user_course_path(@current_user.id, courses.id) %></big> / <small> <%= link_to "Edit Course", edit_user_course_path(@current_user.id, courses.id) %> </small>
 </h5>
 <%end%>
 <%end%>
 <% if current_admin != nil %>
 
-<%= link_to "Create Course", new_user_course_path(@user.id) %>
+<%= link_to "Create Course", new_user_course_path(@current_user.id) %>
 <%end%>
 
 <%else%>

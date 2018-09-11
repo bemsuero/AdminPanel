@@ -30,7 +30,7 @@ class CohortsController < ApplicationController
   def update
     @course = Course.find(params[:id])
   if @cohort.update(cohort_params)
-    @cohort.name = "#{@course.name}" + " " + "#{@cohort.start_date.strftime("%B %Y")}"
+    @cohort.name = "#{@course.name}" + " " + "#{@cohort.startdate.strftime("%B %Y")}"
     if @cohort.save
   p "Cohort successfuly updated"
   redirect_to user_course_path(@user.id, @course.id)

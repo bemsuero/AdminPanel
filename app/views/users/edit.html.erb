@@ -1,8 +1,8 @@
 <% if current_user != nil || current_admin != nil %>
-<h2>Editing Instructor <%=@user.first_name%> <%=@user.last_name%> </h2>
-<h3>With Email: <%=@user.email%></h3>
-<% if current_user != nil%>
-<%= form_for @user do |u| %>
+<h2>Editing Instructor <%=@current_user.first_name%> <%=@current_user.last_name%> </h2>
+<h3>With Email: <%=@current_user.email%></h3>
+<% if u_logged_in? %>
+<%= form_for @current_user do |u| %>
 <%= u.email_field :email, placeholder: "Edit Email", required: true %><br>
 Upload Photo: <%= u.file_field :photo %><br>
 <%= u.password_field :password, placeholder: "Edit password", required: true %><br>

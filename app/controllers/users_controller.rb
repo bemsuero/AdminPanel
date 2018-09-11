@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.admin_id = current_admin.id
     @user.create_employee_id
     if @user.save
       msg = "New Employee Created: #{@user.full_name}."
@@ -39,7 +38,7 @@ def destroy
 end
 
   def index
-    @users = User.where(admin_id: current_admin.id)
+    @users = User.all
   end
 
   def show
