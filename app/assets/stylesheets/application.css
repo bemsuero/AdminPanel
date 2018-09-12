@@ -25,7 +25,7 @@
 html {
 font-family: 'Nunito', sans-serif;
   line-height: 2.7vh;
-  background-image: url("background.png");
+  background-image: url("images/background.png");
   overflow-x: hidden;
 }
 
