@@ -36,27 +36,27 @@ def random_description
 desc = ["The valiant fight against ", "The wild and crazy team up with ", "The battle with time and age in the first days of superheroes, with ", "Survior techniques with ", "Archery practice and the quick technique with ", "Rescuing basics and advanced techniques from the mind of ", "Surviving the internet and other selfie powered machines with "]
 return desc.shuffle[0]
 end
-# 30.times do
-#   User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   birthdate: Faker::Date.birthday(min_age = 14, max_age = 150),
-#   salary: SecureRandom.random_number(150000).floor,
-#   education: random_education,
-#   password: "bemilton",
-#   phone: Faker::PhoneNumber.cell_phone,
-#   employee_id: SecureRandom.hex(6).upcase,
-#   admin_id: 1,
-# )
-# end
- # (I have users 67-96)
+30.times do
+  User.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  birthdate: Faker::Date.birthday(min_age = 14, max_age = 150),
+  salary: SecureRandom.random_number(150000).floor,
+  education: random_education,
+  password: "bemilton",
+  phone: Faker::PhoneNumber.cell_phone,
+  employee_id: SecureRandom.hex(6).upcase,
+  admin_id: 1,
+)
+end
+
 60.times do
   Course.create(
     name: Faker::Superhero.descriptor + " " + random_class,
     hours: (1..6).to_a.shuffle[0],
     description: random_description + Faker::Superhero.name,
-    user_id: (34..63).to_a.shuffle[0],
+    user_id: (1..30).to_a.shuffle[0],
   )
 end
 # 1 - 180
