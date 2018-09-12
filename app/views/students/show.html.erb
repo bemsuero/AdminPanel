@@ -1,6 +1,7 @@
 <% if current_admin != nil %>
 <h2><%=@student.full_name%>'s records.</h2>
 <h3>Student ID: <%=@student.student_id%></h3>
+<h3>Student Contact Number: <%=@student.phone%></h3>
 <% if @student.photo.attached? %>
 <%= image_tag(@student.photo) %>
 <%else%>

@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 end
 
   resources :admins
-  resources :pages
 
   get 'admin_register' => "admins#new"
 

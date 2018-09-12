@@ -2,6 +2,7 @@
 <h2>Welcome <%= @current_user.first_name%> <%= @current_user.last_name%> </h2>
 <h3>Instructor Profile</h3>
 <h3>Employee ID: <%=@current_user.employee_id%></h3>
+<h3>Employee Email: <%=@current_user.email%></h3>
 <% if @current_user.photo.attached? %>
 <%= image_tag(@current_user.photo) %>
 <%else%>
@@ -31,6 +32,7 @@
 <h2><%= @user.first_name%> <%= @user.last_name%>'s Profile </h2>
 <h3>Instructor Profile</h3>
 <h3>Employee ID: <%=@user.employee_id%></h3>
+<h3>Employee Email: <%=@user.email%></h3>
 <% if @user.photo.attached? %>
 <%= image_tag(@user.photo) %>
 <%else%>

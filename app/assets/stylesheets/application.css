@@ -106,8 +106,19 @@ nav a:nth-child(7) {
   margin-left: 10%;
 }
 
-.mainContent h1 {
+.mainContent:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 10.75%;
+  left: 2%;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.85) 90%);
+  width: 95%;
+  height: 4.5em;
 }
+
+
 .searchTitle {
   margin-left: 7%;
 }

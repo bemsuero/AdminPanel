@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-  belongs_to :cohort
+  has_many :cohort
   has_one_attached :photo
   validates :first_name, :last_name, :birthdate, :education, :student_id, presence: true
   validates_date :birthdate, on_or_before: Time.now.year - 14
