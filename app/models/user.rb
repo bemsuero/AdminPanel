@@ -2,7 +2,7 @@ class User < ApplicationRecord
 has_many :courses, dependent: :destroy
 has_many :cohorts, through: :courses
 has_many :students, through: :cohorts
-# has_one_attached :photo
+has_one_attached :photo
 before_save { self.email = email.downcase }
 has_secure_password
 validates :password, presence: true, length: {minimum: 8, maximum: 32}
