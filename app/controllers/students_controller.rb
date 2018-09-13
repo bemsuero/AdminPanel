@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :find_student, only: [:show, :edit, :update, :destroy]
-  before_action :find_user, only: [:new, :edit, :create, :index]
+  before_action :find_user, only: [:new, :create]
   before_action :find_courses_cohorts, only: [:new, :create]
 
   def new
@@ -26,6 +26,7 @@ class StudentsController < ApplicationController
 end
 
   def edit
+    @user = User.find_by(params[:user_id])
   end
 
   def update
@@ -45,6 +46,7 @@ def destroy
 end
 
   def index
+    @user = User.find_by(params[:user_id])
     @students = Student.all
   end
 
