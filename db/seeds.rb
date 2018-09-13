@@ -51,13 +51,13 @@ end
 )
 end
 
-60.times do
-  Course.create(
-    name: Faker::Superhero.descriptor + " " + random_class,
-    hours: (1..6).to_a.shuffle[0],
-    description: random_description + Faker::Superhero.name,
-    user_id: (1..30).to_a.shuffle[0],
-  )
-end
+# 60.times do
+#   Course.create(
+#     name: Faker::Superhero.descriptor + " " + random_class,
+#     hours: (1..6).to_a.shuffle[0],
+#     description: random_description + Faker::Superhero.name,
+#     user_id: (1..30).to_a.shuffle[0],
+#   )
+# end
 # 1 - 180
 # Student.all.destroy_all
