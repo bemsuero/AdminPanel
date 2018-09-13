@@ -96,7 +96,7 @@ end
     end
 
     def find_user
-      @user = User.find_by(params[:user_id])
+      @user = User.find(params[:user_id])
     end
 
     def find_course
