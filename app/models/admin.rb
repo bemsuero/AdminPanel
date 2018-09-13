@@ -1,6 +1,6 @@
 class Admin < ApplicationRecord
   has_many :users
-  has_one_attached :photo
+  # has_one_attached :photo
   #, default_url: "/images/:style/missing.png" for default photos, going to check if my first thing works though
   before_save { self.email = email.downcase }
   has_secure_password

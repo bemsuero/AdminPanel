@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
    @course.update(course_params)
     p course_params
     @course.cohorts.each do |cohort|
-    cohort.name = "#{@course.name}" + " " + "#{cohort.start.strftime("%B %Y")}"
+    cohort.name = "#{@course.name}" + " " + "#{cohort.startdate.strftime("%B %Y")}"
   cohort.save
   p cohort
   p @course.cohorts.count

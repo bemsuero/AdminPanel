@@ -20,8 +20,11 @@
 $(document).ready(function(){
   console.log("GO.")
   $( "#dialog" ).dialog({ autoOpen: false });
+  console.log("ONE.")
   $( "#opener" ).click(function() {
+    console.log("TWO.")
     $("#dialog").removeClass("hidden");
+    console.log("THREE.")
     $( "#dialog" ).dialog( "open" );
   });
 });

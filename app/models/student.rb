@@ -1,6 +1,6 @@
 class Student < ApplicationRecord
   has_many :cohort
-  has_one_attached :photo
+  # has_one_attached :photo
   validates :first_name, :last_name, :birthdate, :education, :student_id, presence: true
   validates_date :birthdate, on_or_before: Time.now.year - 14
   validates_date :birthdate, on_or_after: Time.now.year - 150
