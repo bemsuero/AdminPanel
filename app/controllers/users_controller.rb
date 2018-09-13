@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   p "User successfuly updated"
   redirect_to @user
 else
+  p @user.errors.messages
   render "edit"
 end
 end
