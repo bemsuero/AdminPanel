@@ -17,7 +17,7 @@
 <%= link_to "Back to Instructor's Profile", user_path(@course.user_id) %>
 <% if current_admin != nil %>
 <p><%= link_to "Add Cohort", new_user_course_cohort_path(@user.id, @course.id) %></p>
-<%= link_to 'Delete Course', user_course_path(@course.user_id, @course), data: {confirm: 'This will delete the course.'}, :method=> :delete %>
+<%= link_to 'Delete Course', user_course_path(@course.user_id, @course), data: {confirm: 'This will delete the course.', remote:  true}, :method=> :delete, class: "terminate" %>
 <%end%>
 <%else%>
 <p>You do not have access to this.</p>
